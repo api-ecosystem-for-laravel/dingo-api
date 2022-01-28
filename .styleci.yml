@@ -2,8 +2,9 @@ preset: laravel
 
 disabled:
   - alpha_ordered_imports
+  - laravel_phpdoc_alignment
 
 enabled:
-  - phpdoc_order
+  - laravel_phpdoc_order
   - phpdoc_separation
   - unalign_double_arrow
