@@ -5,5 +5,4 @@ disabled:
   - laravel_phpdoc_alignment
 
 enabled:
-  - phpdoc_separation
   - unalign_double_arrow
