@@ -28,7 +28,6 @@ class Basic extends Authorization
      *
      * @param \Illuminate\Auth\AuthManager $auth
      * @param string                       $identifier
-     *
      * @return void
      */
     public function __construct(AuthManager $auth, $identifier = 'email')
@@ -42,7 +41,6 @@ class Basic extends Authorization
      *
      * @param \Illuminate\Http\Request $request
      * @param \Dingo\Api\Routing\Route $route
-     *
      * @return mixed
      */
     public function authenticate(Request $request, Route $route)

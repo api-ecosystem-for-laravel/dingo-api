@@ -51,7 +51,6 @@ class Fractal implements Adapter
      * @param string                  $includeKey
      * @param string                  $includeSeparator
      * @param bool                    $eagerLoading
-     *
      * @return void
      */
     public function __construct(FractalManager $fractal, $includeKey = 'include', $includeSeparator = ',', $eagerLoading = true)
@@ -69,7 +68,6 @@ class Fractal implements Adapter
      * @param League\Fractal\TransformerAbstract|object $transformer
      * @param \Dingo\Api\Transformer\Binding            $binding
      * @param \Dingo\Api\Http\Request                   $request
-     *
      * @return array
      */
     public function transform($response, $transformer, Binding $binding, Request $request)
@@ -114,7 +112,6 @@ class Fractal implements Adapter
      * Eloquent collection and eager loading is enabled.
      *
      * @param mixed $response
-     *
      * @return bool
      */
     protected function shouldEagerLoad($response)
@@ -130,7 +127,6 @@ class Fractal implements Adapter
      * Create the Fractal paginator adapter.
      *
      * @param \Illuminate\Contracts\Pagination\Paginator $paginator
-     *
      * @return \League\Fractal\Pagination\IlluminatePaginatorAdapter
      */
     protected function createPaginatorAdapter(IlluminatePaginator $paginator)
@@ -144,7 +140,6 @@ class Fractal implements Adapter
      * @param mixed                               $response
      * @param \League\Fractal\TransformerAbstract $transformer
      * @param array                               $parameters
-     *
      * @return \League\Fractal\Resource\Item|\League\Fractal\Resource\Collection
      */
     protected function createResource($response, $transformer, array $parameters)
@@ -162,7 +157,6 @@ class Fractal implements Adapter
      * Parse the includes.
      *
      * @param \Dingo\Api\Http\Request $request
-     *
      * @return void
      */
     public function parseFractalIncludes(Request $request)
@@ -191,7 +185,6 @@ class Fractal implements Adapter
      *
      * @param \League\Fractal\TransformerAbstract $transformer
      * @param string|array                        $requestedIncludes
-     *
      * @return array
      */
     protected function mergeEagerLoads($transformer, $requestedIncludes)

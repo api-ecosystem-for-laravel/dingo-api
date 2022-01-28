@@ -57,7 +57,6 @@ class Laravel implements Adapter
      * Create a new laravel routing adapter instance.
      *
      * @param \Illuminate\Routing\Router $router
-     *
      * @return void
      */
     public function __construct(Router $router)
@@ -70,7 +69,6 @@ class Laravel implements Adapter
      *
      * @param \Illuminate\Http\Request $request
      * @param string                   $version
-     *
      * @return mixed
      */
     public function dispatch(Request $request, $version)
@@ -96,7 +94,6 @@ class Laravel implements Adapter
      * Merge the old application routes with the API routes.
      *
      * @param string $version
-     *
      * @return array
      */
     protected function mergeOldRoutes($version)
@@ -124,7 +121,6 @@ class Laravel implements Adapter
      *
      * @param mixed                    $route
      * @param \Illuminate\Http\Request $request
-     *
      * @return array
      */
     public function getRouteProperties($route, Request $request)
@@ -143,7 +139,6 @@ class Laravel implements Adapter
      * @param array  $versions
      * @param string $uri
      * @param mixed  $action
-     *
      * @return \Illuminate\Routing\Route
      */
     public function addRoute(array $methods, array $versions, $uri, $action)
@@ -167,7 +162,6 @@ class Laravel implements Adapter
      * Create the route collections for the versions.
      *
      * @param array $versions
-     *
      * @return void
      */
     protected function createRouteCollections(array $versions)
@@ -183,7 +177,6 @@ class Laravel implements Adapter
      * Get all routes or only for a specific version.
      *
      * @param string $version
-     *
      * @return mixed
      */
     public function getRoutes($version = null)
@@ -199,7 +192,6 @@ class Laravel implements Adapter
      * Get a normalized iterable set of routes.
      *
      * @param string $version
-     *
      * @return mixed
      */
     public function getIterableRoutes($version = null)
@@ -211,7 +203,6 @@ class Laravel implements Adapter
      * Set the routes on the adapter.
      *
      * @param array $routes
-     *
      * @return void
      */
     public function setRoutes(array $routes)
@@ -223,7 +214,6 @@ class Laravel implements Adapter
      * Prepare a route for serialization.
      *
      * @param mixed $route
-     *
      * @return mixed
      */
     public function prepareRouteForSerialization($route)
@@ -237,7 +227,6 @@ class Laravel implements Adapter
      * Gather the route middlewares.
      *
      * @param \Illuminate\Routing\Route $route
-     *
      * @return array
      */
     public function gatherRouteMiddlewares($route)

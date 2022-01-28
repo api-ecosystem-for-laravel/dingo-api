@@ -51,7 +51,6 @@ class Auth
      * @param \Dingo\Api\Routing\Router       $router
      * @param \Illuminate\Container\Container $container
      * @param array                           $providers
-     *
      * @return void
      */
     public function __construct(Router $router, Container $container, array $providers)
@@ -65,10 +64,9 @@ class Auth
      * Authenticate the current request.
      *
      * @param array $providers
+     * @return mixed
      *
      * @throws \Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException
-     *
-     * @return mixed
      */
     public function authenticate(array $providers = [])
     {
@@ -100,10 +98,9 @@ class Auth
      * Throw the first exception from the exception stack.
      *
      * @param array $exceptionStack
+     * @return void
      *
      * @throws \Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException
-     *
-     * @return void
      */
     protected function throwUnauthorizedException(array $exceptionStack)
     {
@@ -120,7 +117,6 @@ class Auth
      * Filter the requested providers from the available providers.
      *
      * @param array $providers
-     *
      * @return array
      */
     protected function filterProviders(array $providers)
@@ -136,7 +132,6 @@ class Auth
      * Get the authenticated user.
      *
      * @param bool $authenticate
-     *
      * @return \Illuminate\Auth\GenericUser|\Illuminate\Database\Eloquent\Model|null
      */
     public function getUser($authenticate = true)
@@ -158,7 +153,6 @@ class Auth
      * Alias for getUser.
      *
      * @param bool $authenticate
-     *
      * @return \Illuminate\Auth\GenericUser|\Illuminate\Database\Eloquent\Model
      */
     public function user($authenticate = true)
@@ -170,7 +164,6 @@ class Auth
      * Set the authenticated user.
      *
      * @param \Illuminate\Auth\GenericUser|\Illuminate\Database\Eloquent\Model $user
-     *
      * @return \Dingo\Api\Auth\Auth
      */
     public function setUser($user)
@@ -184,7 +177,6 @@ class Auth
      * Check if a user has authenticated with the API.
      *
      * @param bool $authenticate
-     *
      * @return bool
      */
     public function check($authenticate = false)
@@ -207,7 +199,6 @@ class Auth
      *
      * @param string          $key
      * @param object|callable $provider
-     *
      * @return void
      */
     public function extend($key, $provider)

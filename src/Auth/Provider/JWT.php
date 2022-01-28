@@ -22,7 +22,6 @@ class JWT extends Authorization
      * Create a new JWT provider instance.
      *
      * @param \Tymon\JWTAuth\JWTAuth $auth
-     *
      * @return void
      */
     public function __construct(JWTAuth $auth)
@@ -35,7 +34,6 @@ class JWT extends Authorization
      *
      * @param \Illuminate\Http\Request $request
      * @param \Dingo\Api\Routing\Route $route
-     *
      * @return mixed
      */
     public function authenticate(Request $request, Route $route)
@@ -57,10 +55,9 @@ class JWT extends Authorization
      * Get the JWT from the request.
      *
      * @param \Illuminate\Http\Request $request
+     * @return string
      *
      * @throws \Exception
-     *
-     * @return string
      */
     protected function getToken(Request $request)
     {
@@ -81,7 +78,6 @@ class JWT extends Authorization
      * Parse JWT from the authorization header.
      *
      * @param \Illuminate\Http\Request $request
-     *
      * @return string
      */
     protected function parseAuthorizationHeader(Request $request)

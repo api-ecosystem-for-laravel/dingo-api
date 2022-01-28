@@ -51,7 +51,6 @@ class Cache extends Command
      * @param \Illuminate\Filesystem\Filesystem   $files
      * @param \Dingo\Api\Routing\Router           $router
      * @param \Dingo\Api\Contract\Routing\Adapter $adapter
-     *
      * @return void
      */
     public function __construct(Filesystem $files, Router $router, Adapter $adapter)

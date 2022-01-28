@@ -43,7 +43,6 @@ class Accept implements Parser
      * @param string $subtype
      * @param string $version
      * @param string $format
-     *
      * @return void
      */
     public function __construct($standardsTree, $subtype, $version, $format)
@@ -60,10 +59,9 @@ class Accept implements Parser
      *
      * @param \Illuminate\Http\Request $request
      * @param bool                     $strict
+     * @return array
      *
      * @throws \Symfony\Component\HttpKernel\Exception\BadRequestHttpException
-     *
-     * @return array
      */
     public function parse(Request $request, $strict = false)
     {

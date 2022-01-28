@@ -21,7 +21,6 @@ class API extends Facade
      * Bind an exception handler.
      *
      * @param callable $callback
-     *
      * @return void
      */
     public static function error(callable $callback)
@@ -34,7 +33,6 @@ class API extends Facade
      *
      * @param string          $class
      * @param string|\Closure $transformer
-     *
      * @return \Dingo\Api\Transformer\Binding
      */
     public static function transform($class, $transformer)
@@ -97,7 +95,6 @@ class API extends Facade
      *
      * @param string $routeName
      * @param string $apiVersion
-     *
      * @return string
      */
     public static function route($routeName, $apiVersion = 'v1')

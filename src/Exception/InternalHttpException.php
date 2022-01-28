@@ -23,7 +23,6 @@ class InternalHttpException extends HttpException
      * @param \Exception                                 $previous
      * @param array                                      $headers
      * @param int                                        $code
-     *
      * @return void
      */
     public function __construct(Response $response, $message = null, Exception $previous = null, array $headers = [], $code = 0)

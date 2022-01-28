@@ -20,7 +20,6 @@ abstract class ServiceProvider extends IlluminateServiceProvider
      *
      * @param string $item
      * @param bool   $instantiate
-     *
      * @return mixed
      */
     protected function config($item, $instantiate = true)
@@ -39,7 +38,6 @@ abstract class ServiceProvider extends IlluminateServiceProvider
      *
      * @param string $item
      * @param array  $values
-     *
      * @return array
      */
     protected function instantiateConfigValues($item, array $values)
@@ -56,7 +54,6 @@ abstract class ServiceProvider extends IlluminateServiceProvider
      *
      * @param string $item
      * @param mixed  $value
-     *
      * @return mixed
      */
     protected function instantiateConfigValue($item, $value)

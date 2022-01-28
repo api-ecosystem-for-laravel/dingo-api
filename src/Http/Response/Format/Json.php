@@ -18,7 +18,6 @@ class Json extends Format
      * Format an Eloquent model.
      *
      * @param \Illuminate\Database\Eloquent\Model $model
-     *
      * @return string
      */
     public function formatEloquentModel($model)
@@ -36,7 +35,6 @@ class Json extends Format
      * Format an Eloquent collection.
      *
      * @param \Illuminate\Database\Eloquent\Collection $collection
-     *
      * @return string
      */
     public function formatEloquentCollection($collection)
@@ -59,7 +57,6 @@ class Json extends Format
      * Format an array or instance implementing Arrayable.
      *
      * @param array|\Illuminate\Contracts\Support\Arrayable $content
-     *
      * @return string
      */
     public function formatArray($content)
@@ -87,7 +84,6 @@ class Json extends Format
      * Morph a value to an array.
      *
      * @param array|\Illuminate\Contracts\Support\Arrayable $value
-     *
      * @return array
      */
     protected function morphToArray($value)
@@ -99,7 +95,6 @@ class Json extends Format
      * Encode the content to its JSON representation.
      *
      * @param mixed $content
-     *
      * @return string
      */
     protected function encode($content)

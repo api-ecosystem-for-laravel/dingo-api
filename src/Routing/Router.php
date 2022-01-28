@@ -97,7 +97,6 @@ class Router
      * @param \Illuminate\Container\Container            $container
      * @param string                                     $domain
      * @param string                                     $prefix
-     *
      * @return void
      */
     public function __construct(Adapter $adapter, ExceptionHandler $exception, Container $container, $domain, $prefix)
@@ -120,7 +119,6 @@ class Router
      * @param array|string   $version
      * @param array|callable $second
      * @param callable       $third
-     *
      * @return void
      */
     public function version($version, $second, $third = null)
@@ -141,7 +139,6 @@ class Router
      *
      * @param array    $attributes
      * @param callable $callback
-     *
      * @return void
      */
     public function group(array $attributes, $callback)
@@ -178,7 +175,6 @@ class Router
      *
      * @param string                $uri
      * @param array|string|callable $action
-     *
      * @return mixed
      */
     public function get($uri, $action)
@@ -191,7 +187,6 @@ class Router
      *
      * @param string                $uri
      * @param array|string|callable $action
-     *
      * @return mixed
      */
     public function post($uri, $action)
@@ -204,7 +199,6 @@ class Router
      *
      * @param string                $uri
      * @param array|string|callable $action
-     *
      * @return mixed
      */
     public function put($uri, $action)
@@ -217,7 +211,6 @@ class Router
      *
      * @param string                $uri
      * @param array|string|callable $action
-     *
      * @return mixed
      */
     public function patch($uri, $action)
@@ -230,7 +223,6 @@ class Router
      *
      * @param string                $uri
      * @param array|string|callable $action
-     *
      * @return mixed
      */
     public function delete($uri, $action)
@@ -243,7 +235,6 @@ class Router
      *
      * @param string                $uri
      * @param array|string|callable $action
-     *
      * @return mixed
      */
     public function options($uri, $action)
@@ -256,7 +247,6 @@ class Router
      *
      * @param string                $uri
      * @param array|string|callable $action
-     *
      * @return mixed
      */
     public function any($uri, $action)
@@ -272,7 +262,6 @@ class Router
      * @param array|string          $methods
      * @param string                $uri
      * @param array|string|callable $action
-     *
      * @return mixed
      */
     public function match($methods, $uri, $action)
@@ -284,7 +273,6 @@ class Router
      * Register an array of resources.
      *
      * @param array $resources
-     *
      * @return void
      */
     public function resources(array $resources)
@@ -306,7 +294,6 @@ class Router
      * @param string $name
      * @param string $controller
      * @param array  $options
-     *
      * @return void
      */
     public function resource($name, $controller, array $options = [])
@@ -326,7 +313,6 @@ class Router
      * @param string|array          $methods
      * @param string                $uri
      * @param string|array|callable $action
-     *
      * @return mixed
      */
     public function addRoute($methods, $uri, $action)
@@ -364,7 +350,6 @@ class Router
      * Add the controller preparation middleware to the beginning of the routes middleware.
      *
      * @param array $action
-     *
      * @return array
      */
     protected function addControllerMiddlewareToRouteAction(array $action)
@@ -378,7 +363,6 @@ class Router
      * Merge the last groups attributes.
      *
      * @param array $attributes
-     *
      * @return array
      */
     protected function mergeLastGroupAttributes(array $attributes)
@@ -395,7 +379,6 @@ class Router
      *
      * @param array $new
      * @param array $old
-     *
      * @return array
      */
     protected function mergeGroup(array $new, array $old)
@@ -434,7 +417,6 @@ class Router
      *
      * @param string $option
      * @param array  $new
-     *
      * @return array
      */
     protected function formatArrayBasedOption($option, array $new)
@@ -449,7 +431,6 @@ class Router
      *
      * @param array $new
      * @param array $old
-     *
      * @return string
      */
     protected function formatUses(array $new, array $old)
@@ -466,7 +447,6 @@ class Router
      *
      * @param array $new
      * @param array $old
-     *
      * @return string
      */
     protected function formatNamespace(array $new, array $old)
@@ -485,7 +465,6 @@ class Router
      *
      * @param array $new
      * @param array $old
-     *
      * @return string
      */
     protected function formatPrefix($new, $old)
@@ -501,10 +480,9 @@ class Router
      * Dispatch a request via the adapter.
      *
      * @param \Dingo\Api\Http\Request $request
+     * @return \Dingo\Api\Http\Response
      *
      * @throws \Exception
-     *
-     * @return \Dingo\Api\Http\Response
      */
     public function dispatch(Request $request)
     {
@@ -535,7 +513,6 @@ class Router
      * @param mixed                   $response
      * @param \Dingo\Api\Http\Request $request
      * @param string                  $format
-     *
      * @return \Dingo\Api\Http\Response
      */
     protected function prepareResponse($response, Request $request, $format)
@@ -575,7 +552,6 @@ class Router
      * Gather the middleware for the given route.
      *
      * @param mixed $route
-     *
      * @return array
      */
     public function gatherRouteMiddlewares($route)
@@ -597,7 +573,6 @@ class Router
      * Set the conditional request.
      *
      * @param bool $conditionalRequest
-     *
      * @return void
      */
     public function setConditionalRequest($conditionalRequest)
@@ -645,7 +620,6 @@ class Router
      * Create a new route instance from an adapter route.
      *
      * @param array|\Illuminate\Routing\Route $route
-     *
      * @return \Dingo\Api\Routing\Route
      */
     public function createRoute($route)
@@ -657,7 +631,6 @@ class Router
      * Set the current route instance.
      *
      * @param \Dingo\Api\Routing\Route $route
-     *
      * @return void
      */
     public function setCurrentRoute(Route $route)
@@ -695,7 +668,6 @@ class Router
      * Get all routes registered on the adapter.
      *
      * @param string $version
-     *
      * @return mixed
      */
     public function getRoutes($version = null)
@@ -735,7 +707,6 @@ class Router
      * Set the raw adapter routes.
      *
      * @param array $routes
-     *
      * @return void
      */
     public function setAdapterRoutes(array $routes)
@@ -779,7 +750,6 @@ class Router
      * Alias for the "currentRouteNamed" method.
      *
      * @param mixed string
-     *
      * @return bool
      */
     public function is()
@@ -797,7 +767,6 @@ class Router
      * Determine if the current route matches a given name.
      *
      * @param string $name
-     *
      * @return bool
      */
     public function currentRouteNamed($name)
@@ -825,7 +794,6 @@ class Router
      * Alias for the "currentRouteUses" method.
      *
      * @param  mixed  string
-     *
      * @return bool
      */
     public function uses()
@@ -843,7 +811,6 @@ class Router
      * Determine if the current route action matches a given action.
      *
      * @param string $action
-     *
      * @return bool
      */
     public function currentRouteUses($action)

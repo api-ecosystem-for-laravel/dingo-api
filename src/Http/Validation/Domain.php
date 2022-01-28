@@ -21,7 +21,6 @@ class Domain implements Validator
      * Create a new domain validator instance.
      *
      * @param string $domain
-     *
      * @return void
      */
     public function __construct($domain)
@@ -33,7 +32,6 @@ class Domain implements Validator
      * Validate that the request domain matches the configured domain.
      *
      * @param \Illuminate\Http\Request $request
-     *
      * @return bool
      */
     public function validate(Request $request)
@@ -45,7 +43,6 @@ class Domain implements Validator
      * Strip the protocol from a domain.
      *
      * @param string $domain
-     *
      * @return string
      */
     protected function stripProtocol($domain)
@@ -61,7 +58,6 @@ class Domain implements Validator
      * Strip the port from a domain.
      *
      * @param $domain
-     *
      * @return mixed
      */
     protected function stripPort($domain)

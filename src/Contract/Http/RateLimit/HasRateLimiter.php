@@ -12,7 +12,6 @@ interface HasRateLimiter
      *
      * @param \Illuminate\Container\Container $app
      * @param \Dingo\Api\Http\Request         $request
-     *
      * @return string
      */
     public function getRateLimiter(Container $app, Request $request);

@@ -61,7 +61,6 @@ class Handler implements ExceptionHandler, IlluminateExceptionHandler
      * @param IlluminateExceptionHandler $parentHandler
      * @param array                                        $format
      * @param bool                                         $debug
-     *
      * @return void
      */
     public function __construct(IlluminateExceptionHandler $parentHandler, array $format, $debug)
@@ -75,7 +74,6 @@ class Handler implements ExceptionHandler, IlluminateExceptionHandler
      * Report or log an exception.
      *
      * @param Throwable $exception
-     *
      * @return void
      */
     public function report(Throwable $throwable)
@@ -87,7 +85,6 @@ class Handler implements ExceptionHandler, IlluminateExceptionHandler
      * Determine if the exception should be reported.
      *
      * @param Throwable $e
-     *
      * @return bool
      */
     public function shouldReport(Throwable $e)
@@ -100,10 +97,9 @@ class Handler implements ExceptionHandler, IlluminateExceptionHandler
      *
      * @param Request $request
      * @param Throwable $exception
+     * @return mixed
      *
      * @throws Exception
-     *
-     * @return mixed
      */
     public function render($request, Throwable $exception)
     {
@@ -115,7 +111,6 @@ class Handler implements ExceptionHandler, IlluminateExceptionHandler
      *
      * @param OutputInterface $output
      * @param Throwable $exception
-     *
      * @return mixed
      */
     public function renderForConsole($output, Throwable $exception)
@@ -127,7 +122,6 @@ class Handler implements ExceptionHandler, IlluminateExceptionHandler
      * Register a new exception handler.
      *
      * @param callable $callback
-     *
      * @return void
      */
     public function register(callable $callback)
@@ -141,7 +135,6 @@ class Handler implements ExceptionHandler, IlluminateExceptionHandler
      * Handle an exception if it has an existing handler.
      *
      * @param Throwable|Exception $exception
-     *
      * @return Response
      */
     public function handle($exception)
@@ -172,10 +165,9 @@ class Handler implements ExceptionHandler, IlluminateExceptionHandler
      * Handle a generic error response if there is no handler available.
      *
      * @param Throwable $exception
+     * @return Response
      *
      * @throws Throwable
-     *
-     * @return Response
      */
     protected function genericResponse(Throwable $exception)
     {
@@ -198,7 +190,6 @@ class Handler implements ExceptionHandler, IlluminateExceptionHandler
      * Get the status code from the exception.
      *
      * @param Throwable $exception
-     *
      * @return int
      */
     protected function getStatusCode(Throwable $exception)
@@ -226,7 +217,6 @@ class Handler implements ExceptionHandler, IlluminateExceptionHandler
      * Get the headers from the exception.
      *
      * @param Throwable $exception
-     *
      * @return array
      */
     protected function getHeaders(Throwable $exception)
@@ -238,7 +228,6 @@ class Handler implements ExceptionHandler, IlluminateExceptionHandler
      * Prepare the replacements array by gathering the keys and values.
      *
      * @param Throwable $exception
-     *
      * @return array
      */
     protected function prepareReplacements(Throwable $exception)
@@ -293,7 +282,6 @@ class Handler implements ExceptionHandler, IlluminateExceptionHandler
      * Set user defined replacements.
      *
      * @param array $replacements
-     *
      * @return void
      */
     public function setReplacements(array $replacements)
@@ -305,7 +293,6 @@ class Handler implements ExceptionHandler, IlluminateExceptionHandler
      * Recursively remove any empty replacement values in the response array.
      *
      * @param array $input
-     *
      * @return array
      */
     protected function recursivelyRemoveEmptyReplacements(array $input)
@@ -340,7 +327,6 @@ class Handler implements ExceptionHandler, IlluminateExceptionHandler
      *
      * @param Exception $exception
      * @param int        $defaultStatusCode
-     *
      * @return int
      */
     protected function getExceptionStatusCode(Exception $exception, $defaultStatusCode = 500)
@@ -362,7 +348,6 @@ class Handler implements ExceptionHandler, IlluminateExceptionHandler
      * Get the hint for an exception handler.
      *
      * @param callable $callback
-     *
      * @return string
      */
     protected function handlerHint(callable $callback)
@@ -395,7 +380,6 @@ class Handler implements ExceptionHandler, IlluminateExceptionHandler
      * Set the error format array.
      *
      * @param array $format
-     *
      * @return void
      */
     public function setErrorFormat(array $format)
@@ -407,7 +391,6 @@ class Handler implements ExceptionHandler, IlluminateExceptionHandler
      * Set the debug mode.
      *
      * @param bool $debug
-     *
      * @return void
      */
     public function setDebug($debug)
