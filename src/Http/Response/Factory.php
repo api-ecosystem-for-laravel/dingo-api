@@ -24,7 +24,6 @@ class Factory
      * Create a new response factory instance.
      *
      * @param \Dingo\Api\Transformer\Factory $transformer
-     *
      * @return void
      */
     public function __construct(TransformerFactory $transformer)
@@ -36,7 +35,6 @@ class Factory
      * Respond with a created response and associate a location if provided.
      *
      * @param null|string $location
-     *
      * @return \Dingo\Api\Http\Response
      */
     public function created($location = null, $content = null)
@@ -56,7 +54,6 @@ class Factory
      *
      * @param null|string $location
      * @param mixed       $content
-     *
      * @return \Dingo\Api\Http\Response
      */
     public function accepted($location = null, $content = null)
@@ -90,7 +87,6 @@ class Factory
      * @param string|callable|object         $transformer
      * @param array|\Closure                 $parameters
      * @param \Closure|null                  $after
-     *
      * @return \Dingo\Api\Http\Response
      */
     public function collection(Collection $collection, $transformer = null, $parameters = [], Closure $after = null)
@@ -122,7 +118,6 @@ class Factory
      * @param null|string|callable|object    $transformer
      * @param array                          $parameters
      * @param \Closure                       $after
-     *
      * @return \Dingo\Api\Http\Response
      */
     public function item($item, $transformer = null, $parameters = [], Closure $after = null)
@@ -155,7 +150,6 @@ class Factory
      * @param $transformer
      * @param array $parameters
      * @param Closure|null $after
-     *
      * @return Response
      */
     public function array(array $array, $transformer = null, $parameters = [], Closure $after = null)
@@ -187,7 +181,6 @@ class Factory
      * @param null|string|callable|object                $transformer
      * @param array                                      $parameters
      * @param \Closure                                   $after
-     *
      * @return \Dingo\Api\Http\Response
      */
     public function paginator(Paginator $paginator, $transformer = null, array $parameters = [], Closure $after = null)
@@ -212,10 +205,9 @@ class Factory
      *
      * @param string $message
      * @param int    $statusCode
+     * @return void
      *
      * @throws \Symfony\Component\HttpKernel\Exception\HttpException
-     *
-     * @return void
      */
     public function error($message, $statusCode)
     {
@@ -226,10 +218,9 @@ class Factory
      * Return a 404 not found error.
      *
      * @param string $message
+     * @return void
      *
      * @throws \Symfony\Component\HttpKernel\Exception\HttpException
-     *
-     * @return void
      */
     public function errorNotFound($message = 'Not Found')
     {
@@ -240,10 +231,9 @@ class Factory
      * Return a 400 bad request error.
      *
      * @param string $message
+     * @return void
      *
      * @throws \Symfony\Component\HttpKernel\Exception\HttpException
-     *
-     * @return void
      */
     public function errorBadRequest($message = 'Bad Request')
     {
@@ -254,10 +244,9 @@ class Factory
      * Return a 403 forbidden error.
      *
      * @param string $message
+     * @return void
      *
      * @throws \Symfony\Component\HttpKernel\Exception\HttpException
-     *
-     * @return void
      */
     public function errorForbidden($message = 'Forbidden')
     {
@@ -268,10 +257,9 @@ class Factory
      * Return a 500 internal server error.
      *
      * @param string $message
+     * @return void
      *
      * @throws \Symfony\Component\HttpKernel\Exception\HttpException
-     *
-     * @return void
      */
     public function errorInternal($message = 'Internal Error')
     {
@@ -282,10 +270,9 @@ class Factory
      * Return a 401 unauthorized error.
      *
      * @param string $message
+     * @return void
      *
      * @throws \Symfony\Component\HttpKernel\Exception\HttpException
-     *
-     * @return void
      */
     public function errorUnauthorized($message = 'Unauthorized')
     {
@@ -296,10 +283,9 @@ class Factory
      * Return a 405 method not allowed error.
      *
      * @param string $message
+     * @return void
      *
      * @throws \Symfony\Component\HttpKernel\Exception\HttpException
-     *
-     * @return void
      */
     public function errorMethodNotAllowed($message = 'Method Not Allowed')
     {
@@ -311,10 +297,9 @@ class Factory
      *
      * @param string $method
      * @param array  $parameters
+     * @return mixed
      *
      * @throws \ErrorException
-     *
-     * @return mixed
      */
     public function __call($method, $parameters)
     {

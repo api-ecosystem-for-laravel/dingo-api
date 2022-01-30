@@ -17,7 +17,6 @@ abstract class Throttle implements RateLimitThrottle
      * Create a new throttle instance.
      *
      * @param array $options
-     *
      * @return void
      */
     public function __construct(array $options = [])

@@ -105,7 +105,6 @@ class Route extends \Illuminate\Routing\Route
      *
      * @param Request $request
      * @param         $route
-     *
      * @return void
      */
     protected function setupRouteProperties(Request $request, $route)
@@ -182,7 +181,6 @@ class Route extends \Illuminate\Routing\Route
      * Find the controller options and whether or not it will apply to this routes controller method.
      *
      * @param string $name
-     *
      * @return array
      */
     protected function findControllerPropertyOptions($name)
@@ -206,7 +204,6 @@ class Route extends \Illuminate\Routing\Route
      * Determine if a controller method is in an array of options.
      *
      * @param array $options
-     *
      * @return bool
      */
     protected function optionsApplyToControllerMethod(array $options)
@@ -229,7 +226,6 @@ class Route extends \Illuminate\Routing\Route
      * Explode a value on a pipe delimiter.
      *
      * @param string|array $value
-     *
      * @return array
      */
     protected function explodeOnPipes($value)

@@ -15,7 +15,6 @@ class Jsonp extends Json
      * Create a new JSONP response formatter instance.
      *
      * @param string $callbackName
-     *
      * @return void
      */
     public function __construct($callbackName = 'callback')
@@ -61,7 +60,6 @@ class Jsonp extends Json
      * Encode the content to its JSONP representation.
      *
      * @param mixed $content
-     *
      * @return string
      */
     protected function encode($content)

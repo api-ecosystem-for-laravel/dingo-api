@@ -14,7 +14,6 @@ interface Adapter
      * @param object                         $transformer
      * @param \Dingo\Api\Transformer\Binding $binding
      * @param \Dingo\Api\Http\Request        $request
-     *
      * @return array
      */
     public function transform($response, $transformer, Binding $binding, Request $request);

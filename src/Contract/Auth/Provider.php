@@ -12,7 +12,6 @@ interface Provider
      *
      * @param \Illuminate\Http\Request $request
      * @param \Dingo\Api\Routing\Route $route
-     *
      * @return mixed
      */
     public function authenticate(Request $request, Route $route);

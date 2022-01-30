@@ -39,7 +39,6 @@ class Factory
      *
      * @param \Illuminate\Container\Container         $container
      * @param \Dingo\Api\Contract\Transformer\Adapter $adapter
-     *
      * @return void
      */
     public function __construct(Container $container, Adapter $adapter)
@@ -55,7 +54,6 @@ class Factory
      * @param               $resolver
      * @param array         $parameters
      * @param \Closure|null $after
-     *
      * @return \Dingo\Api\Transformer\Binding
      */
     public function register($class, $resolver, array $parameters = [], Closure $after = null)
@@ -67,7 +65,6 @@ class Factory
      * Transform a response.
      *
      * @param string|object $response
-     *
      * @return mixed
      */
     public function transform($response)
@@ -81,7 +78,6 @@ class Factory
      * Determine if a response is transformable.
      *
      * @param mixed $response
-     *
      * @return bool
      */
     public function transformableResponse($response)
@@ -93,7 +89,6 @@ class Factory
      * Determine if a value is of a transformable type.
      *
      * @param mixed $value
-     *
      * @return bool
      */
     public function transformableType($value)
@@ -105,10 +100,9 @@ class Factory
      * Get a registered transformer binding.
      *
      * @param string|object $class
+     * @return \Dingo\Api\Transformer\Binding
      *
      * @throws \RuntimeException
-     *
-     * @return \Dingo\Api\Transformer\Binding
      */
     public function getBinding($class)
     {
@@ -131,7 +125,6 @@ class Factory
      * @param string|callable|object $resolver
      * @param array                  $parameters
      * @param \Closure               $callback
-     *
      * @return \Dingo\Api\Transformer\Binding
      */
     protected function createBinding($resolver, array $parameters = [], Closure $callback = null)
@@ -143,7 +136,6 @@ class Factory
      * Get a registered transformer binding from a collection of items.
      *
      * @param \Illuminate\Support\Collection $collection
-     *
      * @return null|string|callable
      */
     protected function getBindingFromCollection($collection)
@@ -155,7 +147,6 @@ class Factory
      * Determine if a class has a transformer binding.
      *
      * @param string|object $class
-     *
      * @return bool
      */
     protected function hasBinding($class)
@@ -173,7 +164,6 @@ class Factory
      * Determine if the instance is a collection.
      *
      * @param object $instance
-     *
      * @return bool
      */
     protected function isCollection($instance)
@@ -195,7 +185,6 @@ class Factory
      * Set the transformation layer at runtime.
      *
      * @param \Closure|\Dingo\Api\Contract\Transformer\Adapter $adapter
-     *
      * @return void
      */
     public function setAdapter($adapter)
@@ -238,7 +227,6 @@ class Factory
      *
      * @param string $method
      * @param array  $parameters
-     *
      * @return mixed
      */
     public function __call($method, $parameters)

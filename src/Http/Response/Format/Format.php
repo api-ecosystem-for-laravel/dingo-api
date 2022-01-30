@@ -29,7 +29,6 @@ abstract class Format
      * Set the request instance.
      *
      * @param \Illuminate\Http\Request $request
-     *
      * @return \Dingo\Api\Http\Response\Format\Format
      */
     public function setRequest($request)
@@ -43,7 +42,6 @@ abstract class Format
      * Set the response instance.
      *
      * @param \Illuminate\Http\Response $response
-     *
      * @return \Dingo\Api\Http\Response\Format\Format
      */
     public function setResponse($response)
@@ -57,7 +55,6 @@ abstract class Format
      * Set the formats' options.
      *
      * @param array $options
-     *
      * @return \Dingo\Api\Http\Response\Format\Format
      */
     public function setOptions(array $options)
@@ -71,7 +68,6 @@ abstract class Format
      * Format an Eloquent model.
      *
      * @param \Illuminate\Database\Eloquent\Model $model
-     *
      * @return string
      */
     abstract public function formatEloquentModel($model);
@@ -80,7 +76,6 @@ abstract class Format
      * Format an Eloquent collection.
      *
      * @param \Illuminate\Database\Eloquent\Collection $collection
-     *
      * @return string
      */
     abstract public function formatEloquentCollection($collection);
@@ -89,7 +84,6 @@ abstract class Format
      * Format an array or instance implementing Arrayable.
      *
      * @param array|\Illuminate\Contracts\Support\Arrayable $content
-     *
      * @return string
      */
     abstract public function formatArray($content);
