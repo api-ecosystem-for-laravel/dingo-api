@@ -32,7 +32,6 @@ class RequestValidator
      * Create a new request validator instance.
      *
      * @param \Illuminate\Container\Container $container
-     *
      * @return void
      */
     public function __construct(Container $container)
@@ -44,7 +43,6 @@ class RequestValidator
      * Replace the validators.
      *
      * @param array $validators
-     *
      * @return void
      */
     public function replace(array $validators)
@@ -56,7 +54,6 @@ class RequestValidator
      * Merge an array of validators.
      *
      * @param array $validators
-     *
      * @return void
      */
     public function merge(array $validators)
@@ -68,7 +65,6 @@ class RequestValidator
      * Extend the validators.
      *
      * @param string|\Dingo\Api\Http\Validator $validator
-     *
      * @return void
      */
     public function extend($validator)
@@ -80,7 +76,6 @@ class RequestValidator
      * Validate a request.
      *
      * @param \Illuminate\Http\Request $request
-     *
      * @return bool
      */
     public function validateRequest(IlluminateRequest $request)

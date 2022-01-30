@@ -14,7 +14,6 @@ class RateLimitExceededException extends HttpException
      * @param \Exception $previous
      * @param array      $headers
      * @param int        $code
-     *
      * @return void
      */
     public function __construct($message = null, Exception $previous = null, $headers = [], $code = 0)

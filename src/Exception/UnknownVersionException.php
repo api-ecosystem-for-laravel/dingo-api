@@ -13,7 +13,6 @@ class UnknownVersionException extends HttpException
      * @param string     $message
      * @param \Exception $previous
      * @param int        $code
-     *
      * @return void
      */
     public function __construct($message = null, Exception $previous = null, $code = 0)

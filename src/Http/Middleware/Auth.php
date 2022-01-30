@@ -27,7 +27,6 @@ class Auth
      *
      * @param \Dingo\Api\Routing\Router $router
      * @param \Dingo\Api\Auth\Auth      $auth
-     *
      * @return void
      */
     public function __construct(Router $router, Authentication $auth)
@@ -41,7 +40,6 @@ class Auth
      *
      * @param \Illuminate\Http\Request $request
      * @param \Closure                 $next
-     *
      * @return mixed
      */
     public function handle($request, Closure $next)

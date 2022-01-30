@@ -50,7 +50,6 @@ class Routes extends RouteListCommand
      * Create a new routes command instance.
      *
      * @param \Dingo\Api\Routing\Router $router
-     *
      * @return void
      */
     public function __construct(Router $router)
@@ -139,7 +138,6 @@ class Routes extends RouteListCommand
      * on the route.
      *
      * @param \Dingo\Api\Routing\Route $route
-     *
      * @return null|string
      */
     protected function routeRateLimit($route)
@@ -155,7 +153,6 @@ class Routes extends RouteListCommand
      * Filter the route by URI, Version, Scopes and / or name.
      *
      * @param array $route
-     *
      * @return array|null
      */
     protected function filterRoute(array $route)
@@ -203,7 +200,6 @@ class Routes extends RouteListCommand
      * Filter the route by its path.
      *
      * @param array $route
-     *
      * @return bool
      */
     protected function filterByPath(array $route)
@@ -215,7 +211,6 @@ class Routes extends RouteListCommand
      * Filter the route by whether or not it is protected.
      *
      * @param array $route
-     *
      * @return bool
      */
     protected function filterByProtected(array $route)
@@ -227,7 +222,6 @@ class Routes extends RouteListCommand
      * Filter the route by whether or not it is unprotected.
      *
      * @param array $route
-     *
      * @return bool
      */
     protected function filterByUnprotected(array $route)
@@ -239,7 +233,6 @@ class Routes extends RouteListCommand
      * Filter the route by its versions.
      *
      * @param array $route
-     *
      * @return bool
      */
     protected function filterByVersions(array $route)
@@ -257,7 +250,6 @@ class Routes extends RouteListCommand
      * Filter the route by its name.
      *
      * @param array $route
-     *
      * @return bool
      */
     protected function filterByName(array $route)
@@ -269,7 +261,6 @@ class Routes extends RouteListCommand
      * Filter the route by its scopes.
      *
      * @param array $route
-     *
      * @return bool
      */
     protected function filterByScopes(array $route)

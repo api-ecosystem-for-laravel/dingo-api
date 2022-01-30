@@ -10,7 +10,6 @@ interface Throttle
      * Attempt to match the throttle against a given condition.
      *
      * @param \Illuminate\Container\Container $container
-     *
      * @return bool
      */
     public function match(Container $container);

@@ -13,7 +13,6 @@ class ValidationHttpException extends ResourceException
      * @param \Exception                           $previous
      * @param array                                $headers
      * @param int                                  $code
-     *
      * @return void
      */
     public function __construct($errors = null, Exception $previous = null, $headers = [], $code = 0)

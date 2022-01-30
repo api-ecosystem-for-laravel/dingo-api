@@ -170,7 +170,6 @@ class Dispatcher
      * @param \Illuminate\Filesystem\Filesystem $files
      * @param \Dingo\Api\Routing\Router         $router
      * @param \Dingo\Api\Auth\Auth              $auth
-     *
      * @return void
      */
     public function __construct(Container $container, Filesystem $files, Router $router, Auth $auth)
@@ -197,7 +196,6 @@ class Dispatcher
      * Attach files to be uploaded.
      *
      * @param array $files
-     *
      * @return \Dingo\Api\Dispatcher
      */
     public function attach(array $files)
@@ -223,7 +221,6 @@ class Dispatcher
      * Internal request will be authenticated as the given user.
      *
      * @param mixed $user
-     *
      * @return \Dingo\Api\Dispatcher
      */
     public function be($user)
@@ -237,7 +234,6 @@ class Dispatcher
      * Send a JSON payload in the request body.
      *
      * @param string|array $content
-     *
      * @return \Dingo\Api\Dispatcher
      */
     public function json($content)
@@ -255,7 +251,6 @@ class Dispatcher
      * Sets the domain to be used for the request.
      *
      * @param string $domain
-     *
      * @return \Dingo\Api\Dispatcher
      */
     public function on($domain)
@@ -293,7 +288,6 @@ class Dispatcher
      * Set the version of the API for the next request.
      *
      * @param string $version
-     *
      * @return \Dingo\Api\Dispatcher
      */
     public function version($version)
@@ -307,7 +301,6 @@ class Dispatcher
      * Set the parameters to be sent on the next API request.
      *
      * @param string|array $parameters
-     *
      * @return \Dingo\Api\Dispatcher
      */
     public function with($parameters)
@@ -322,7 +315,6 @@ class Dispatcher
      *
      * @param string $key
      * @param string $value
-     *
      * @return \Dingo\Api\Dispatcher
      */
     public function header($key, $value)
@@ -336,7 +328,6 @@ class Dispatcher
      * Set a cookie to be sent on the next API request.
      *
      * @param \Symfony\Component\HttpFoundation\Cookie $cookie
-     *
      * @return \Dingo\Api\Dispatcher
      */
     public function cookie(Cookie $cookie)
@@ -351,7 +342,6 @@ class Dispatcher
      *
      * @param string       $uri
      * @param string|array $parameters
-     *
      * @return mixed
      */
     public function get($uri, $parameters = [])
@@ -365,7 +355,6 @@ class Dispatcher
      * @param string       $uri
      * @param string|array $parameters
      * @param string       $content
-     *
      * @return mixed
      */
     public function post($uri, $parameters = [], $content = '')
@@ -379,7 +368,6 @@ class Dispatcher
      * @param string       $uri
      * @param string|array $parameters
      * @param string       $content
-     *
      * @return mixed
      */
     public function put($uri, $parameters = [], $content = '')
@@ -393,7 +381,6 @@ class Dispatcher
      * @param string       $uri
      * @param string|array $parameters
      * @param string       $content
-     *
      * @return mixed
      */
     public function patch($uri, $parameters = [], $content = '')
@@ -407,7 +394,6 @@ class Dispatcher
      * @param string       $uri
      * @param string|array $parameters
      * @param string       $content
-     *
      * @return mixed
      */
     public function delete($uri, $parameters = [], $content = '')
@@ -422,7 +408,6 @@ class Dispatcher
      * @param string       $uri
      * @param string|array $parameters
      * @param string       $content
-     *
      * @return mixed
      */
     protected function queueRequest($verb, $uri, $parameters, $content = '')
@@ -452,7 +437,6 @@ class Dispatcher
      * @param string       $verb
      * @param string       $uri
      * @param string|array $parameters
-     *
      * @return \Dingo\Api\Http\InternalRequest
      */
     protected function createRequest($verb, $uri, $parameters)
@@ -493,7 +477,6 @@ class Dispatcher
      * Add the prefix to the URI.
      *
      * @param string $uri
-     *
      * @return string
      */
     protected function addPrefixToUri($uri)
@@ -525,10 +508,9 @@ class Dispatcher
      * Attempt to dispatch an internal request.
      *
      * @param \Dingo\Api\Http\InternalRequest $request
+     * @return mixed
      *
      * @throws \Exception|\Symfony\Component\HttpKernel\Exception\HttpExceptionInterface
-     *
-     * @return mixed
      */
     protected function dispatch(InternalRequest $request)
     {
@@ -670,7 +652,6 @@ class Dispatcher
      * Set the subtype.
      *
      * @param string $subtype
-     *
      * @return void
      */
     public function setSubtype($subtype)
@@ -692,7 +673,6 @@ class Dispatcher
      * Set the standards tree.
      *
      * @param string $standardsTree
-     *
      * @return void
      */
     public function setStandardsTree($standardsTree)
@@ -704,7 +684,6 @@ class Dispatcher
      * Set the prefix.
      *
      * @param string $prefix
-     *
      * @return void
      */
     public function setPrefix($prefix)
@@ -716,7 +695,6 @@ class Dispatcher
      * Set the default version.
      *
      * @param string $version
-     *
      * @return void
      */
     public function setDefaultVersion($version)
@@ -728,7 +706,6 @@ class Dispatcher
      * Set the default domain.
      *
      * @param string $domain
-     *
      * @return void
      */
     public function setDefaultDomain($domain)
@@ -740,7 +717,6 @@ class Dispatcher
      * Set the default format.
      *
      * @param string $format
-     *
      * @return void
      */
     public function setDefaultFormat($format)
