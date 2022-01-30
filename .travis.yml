@@ -1,5 +1,5 @@
 # Test any changes here to see the impact - https://config.travis-ci.com/explore
-
+dist: bionic
 language: php
 
 php:
