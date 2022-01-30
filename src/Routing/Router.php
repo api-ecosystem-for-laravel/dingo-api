@@ -470,7 +470,7 @@ class Router
     protected function formatPrefix($new, $old)
     {
         if (isset($new['prefix'])) {
-            return trim((string)Arr::get($old, 'prefix'), '/').'/'.trim((string)$new['prefix'], '/');
+            return trim((string) Arr::get($old, 'prefix'), '/').'/'.trim((string) $new['prefix'], '/');
         }
 
         return Arr::get($old, 'prefix', '');
