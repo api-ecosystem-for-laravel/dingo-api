@@ -105,8 +105,8 @@ class Handler
         // limiting will not be imposed for the request.
         } else {
             $this->throttle = $this->getMatchingThrottles()->sort(function ($a, $b) {
-                return $a->getLimit() < $b->getLimit();
-            })->first();
+                return $a->getLimit() <=> $b->getLimit();
+            })->last();
         }
 
         if (is_null($this->throttle)) {
