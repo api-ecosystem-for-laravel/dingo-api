@@ -106,7 +106,7 @@ class Handler
         } else {
             $this->throttle = $this->getMatchingThrottles()->sort(function ($a, $b) {
                 return $a->getLimit() <=> $b->getLimit();
-            })->first();
+            })->last();
         }
 
         if (is_null($this->throttle)) {
