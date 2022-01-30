@@ -1,12 +1,12 @@
 language: php
 
 sudo: false
-dist: trusty
+dist: precise
 
 env:
   global:
     - setup=basic
-    - xdebug=true
+    - xdebug=false
 
 cache:
   directories:
@@ -15,11 +15,8 @@ cache:
 matrix:
   include:
     - php: 7.4
-      env: xdebug=false
-#    - php: 8.0
-#      env: xdebug=false
-#    - php: 8.1
-#      env: xdebug=false
+    - php: 8.0
+    - php: 8.1
 
 before_install:
   - if [[ $xdebug = 'true' ]] ; then phpenv config-rm xdebug.ini; fi
