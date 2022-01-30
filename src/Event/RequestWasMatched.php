@@ -26,7 +26,6 @@ class RequestWasMatched
      *
      * @param \Dingo\Api\Http\Request                   $request
      * @param \Illuminate\Contracts\Container\Container $app
-     *
      * @return void
      */
     public function __construct(Request $request, Container $app)

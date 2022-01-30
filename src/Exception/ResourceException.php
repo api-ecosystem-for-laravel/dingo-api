@@ -24,7 +24,6 @@ class ResourceException extends HttpException implements MessageBagErrors
      * @param \Exception                           $previous
      * @param array                                $headers
      * @param int                                  $code
-     *
      * @return void
      */
     public function __construct($message = null, $errors = null, Exception $previous = null, $headers = [], $code = 0)

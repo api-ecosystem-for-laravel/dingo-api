@@ -28,7 +28,6 @@ class Accept implements Validator
      *
      * @param \Dingo\Api\Http\Parser\Accept $accept
      * @param bool                          $strict
-     *
      * @return void
      */
     public function __construct(AcceptParser $accept, $strict = false)
@@ -44,10 +43,9 @@ class Accept implements Validator
      * a success boolean.
      *
      * @param \Illuminate\Http\Request $request
+     * @return bool
      *
      * @throws \Exception|\Symfony\Component\HttpKernel\Exception\BadRequestHttpException
-     *
-     * @return bool
      */
     public function validate(Request $request)
     {

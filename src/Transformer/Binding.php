@@ -50,7 +50,6 @@ class Binding
      * @param mixed                           $resolver
      * @param array                           $parameters
      * @param \Closure                        $callback
-     *
      * @return void
      */
     public function __construct(Container $container, $resolver, array $parameters = [], Closure $callback = null)
@@ -64,9 +63,9 @@ class Binding
     /**
      * Resolve a transformer binding instance.
      *
-     * @throws \RuntimeException
-     *
      * @return object
+     *
+     * @throws \RuntimeException
      */
     public function resolveTransformer()
     {
@@ -85,7 +84,6 @@ class Binding
      * Fire the binding callback.
      *
      * @param string|array $parameters
-     *
      * @return void
      */
     public function fireCallback($parameters = null)
@@ -109,7 +107,6 @@ class Binding
      * Set the meta data for the binding.
      *
      * @param array $meta
-     *
      * @return void
      */
     public function setMeta(array $meta)
@@ -122,7 +119,6 @@ class Binding
      *
      * @param string $key
      * @param mixed  $value
-     *
      * @return void
      */
     public function addMeta($key, $value)

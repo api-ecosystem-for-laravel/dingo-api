@@ -19,10 +19,9 @@ abstract class Authorization implements \Dingo\Api\Contract\Auth\Provider
      * Validate the requests authorization header for the provider.
      *
      * @param \Illuminate\Http\Request $request
+     * @return bool
      *
      * @throws \Symfony\Component\HttpKernel\Exception\BadRequestHttpException
-     *
-     * @return bool
      */
     public function validateAuthorizationHeader(Request $request)
     {

@@ -68,7 +68,6 @@ class Handler
      * @param \Illuminate\Container\Container $container
      * @param \Illuminate\Cache\CacheManager  $cache
      * @param array                           $throttles
-     *
      * @return void
      */
     public function __construct(Container $container, CacheManager $cache, array $throttles)
@@ -84,7 +83,6 @@ class Handler
      * @param \Dingo\Api\Http\Request $request
      * @param int                     $limit
      * @param int                     $expires
-     *
      * @return void
      */
     public function rateLimitRequest(Request $request, $limit = 0, $expires = 0)
@@ -167,7 +165,6 @@ class Handler
      * Namespace a cache key.
      *
      * @param string $key
-     *
      * @return string
      */
     protected function key($key)
@@ -181,7 +178,6 @@ class Handler
      * @param string $key
      * @param mixed  $value
      * @param int    $minutes
-     *
      * @return void
      */
     protected function cache($key, $value, $minutes)
@@ -193,7 +189,6 @@ class Handler
      * Retrieve a value from the cache store.
      *
      * @param string $key
-     *
      * @return mixed
      */
     protected function retrieve($key)
@@ -205,7 +200,6 @@ class Handler
      * Increment a key in the cache.
      *
      * @param string $key
-     *
      * @return void
      */
     protected function increment($key)
@@ -217,7 +211,6 @@ class Handler
      * Forget a key in the cache.
      *
      * @param string $key
-     *
      * @return void
      */
     protected function forget($key)
@@ -251,7 +244,6 @@ class Handler
      * Set the rate limiter.
      *
      * @param callable $limiter
-     *
      * @return void
      */
     public function setRateLimiter(callable $limiter)
@@ -263,7 +255,6 @@ class Handler
      * Set the throttle to use for rate limiting.
      *
      * @param string|\Dingo\Api\Contract\Http\RateLimit\Throttle $throttle
-     *
      * @return void
      */
     public function setThrottle($throttle)
@@ -321,7 +312,6 @@ class Handler
      * Extend the rate limiter by adding a new throttle.
      *
      * @param callable|\Dingo\Api\Http\RateLimit\Throttle $throttle
-     *
      * @return void
      */
     public function extend($throttle)

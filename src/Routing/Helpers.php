@@ -48,7 +48,6 @@ trait Helpers
      *
      * @param string|\Dingo\Api\Contract\Http\RateLimit\Throttle $class
      * @param array                                              $options
-     *
      * @return void
      */
     protected function throttle($class, array $options = [])
@@ -62,7 +61,6 @@ trait Helpers
      * @param int   $limit
      * @param int   $expires
      * @param array $options
-     *
      * @return void
      */
     protected function rateLimit($limit, $expires, array $options = [])
@@ -75,7 +73,6 @@ trait Helpers
      *
      * @param string|array $scopes
      * @param array        $options
-     *
      * @return void
      */
     protected function scopes($scopes, array $options = [])
@@ -90,7 +87,6 @@ trait Helpers
      *
      * @param string|array $providers
      * @param array        $options
-     *
      * @return void
      */
     protected function authenticateWith($providers, array $options = [])
@@ -104,7 +100,6 @@ trait Helpers
      * Prepare a property value.
      *
      * @param string|array $value
-     *
      * @return array
      */
     protected function getPropertyValue($value)
@@ -196,10 +191,9 @@ trait Helpers
      * Magically handle calls to certain properties.
      *
      * @param string $key
+     * @return mixed
      *
      * @throws \ErrorException
-     *
-     * @return mixed
      */
     public function __get($key)
     {
@@ -219,10 +213,9 @@ trait Helpers
      *
      * @param string $method
      * @param array  $parameters
+     * @return \Dingo\Api\Http\Response
      *
      * @throws \ErrorException
-     *
-     * @return \Dingo\Api\Http\Response
      */
     public function __call($method, $parameters)
     {

@@ -22,9 +22,9 @@ class LumenServiceProvider extends DingoServiceProvider
     /**
      * Boot the service provider.
      *
-     * @throws \ReflectionException
-     *
      * @return void
+     *
+     * @throws \ReflectionException
      */
     public function boot()
     {
@@ -115,7 +115,6 @@ class LumenServiceProvider extends DingoServiceProvider
      * Lumen application instance.
      *
      * @param \ReflectionClass $reflection
-     *
      * @return void
      */
     protected function addRequestMiddlewareToBeginning(ReflectionClass $reflection)
@@ -136,7 +135,6 @@ class LumenServiceProvider extends DingoServiceProvider
      * our request through them, exactly how the developer wanted.
      *
      * @param \ReflectionClass $reflection
-     *
      * @return array
      */
     protected function gatherAppMiddleware(ReflectionClass $reflection)
@@ -154,7 +152,6 @@ class LumenServiceProvider extends DingoServiceProvider
      *
      * @param FormRequest $form
      * @param IlluminateRequest $current
-     *
      * @return void
      */
     protected function initializeRequest(FormRequest $form, IlluminateRequest $current)

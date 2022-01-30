@@ -18,7 +18,6 @@ class ResourceRegistrar extends IlluminateResourceRegistrar
      * Create a new resource registrar instance.
      *
      * @param \Dingo\Api\Routing\Router $router
-     *
      * @return void
      */
     public function __construct(Router $router)
@@ -32,7 +31,6 @@ class ResourceRegistrar extends IlluminateResourceRegistrar
      * @param  string  $name
      * @param  string  $controller
      * @param  array   $options
-     *
      * @return void
      */
     public function register($name, $controller, array $options = [])

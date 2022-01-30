@@ -18,7 +18,6 @@ class UrlGenerator extends IlluminateUrlGenerator
      * Create a new URL generator instance.
      *
      * @param \Dingo\Api\Http\Request $request
-     *
      * @return void
      */
     public function __construct(Request $request)
@@ -30,7 +29,6 @@ class UrlGenerator extends IlluminateUrlGenerator
      * Set the routes to use from the version.
      *
      * @param string $version
-     *
      * @return \Dingo\Api\Routing\UrlGenerator
      */
     public function version($version)

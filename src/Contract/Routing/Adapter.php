@@ -11,7 +11,6 @@ interface Adapter
      *
      * @param \Illuminate\Http\Request $request
      * @param string                   $version
-     *
      * @return mixed
      */
     public function dispatch(Request $request, $version);
@@ -21,7 +20,6 @@ interface Adapter
      *
      * @param mixed                    $route
      * @param \Illuminate\Http\Request $request
-     *
      * @return array
      */
     public function getRouteProperties($route, Request $request);
@@ -33,7 +31,6 @@ interface Adapter
      * @param array  $versions
      * @param string $uri
      * @param mixed  $action
-     *
      * @return void
      */
     public function addRoute(array $methods, array $versions, $uri, $action);
@@ -42,7 +39,6 @@ interface Adapter
      * Get all routes or only for a specific version.
      *
      * @param string $version
-     *
      * @return mixed
      */
     public function getRoutes($version = null);
@@ -52,7 +48,6 @@ interface Adapter
      * version containing iterable routes that can be consumed by the adapter.
      *
      * @param string $version
-     *
      * @return mixed
      */
     public function getIterableRoutes($version = null);
@@ -61,7 +56,6 @@ interface Adapter
      * Set the routes on the adapter.
      *
      * @param array $routes
-     *
      * @return void
      */
     public function setRoutes(array $routes);
@@ -70,7 +64,6 @@ interface Adapter
      * Prepare a route for serialization.
      *
      * @param mixed $route
-     *
      * @return mixed
      */
     public function prepareRouteForSerialization($route);
