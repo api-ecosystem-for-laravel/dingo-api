@@ -26,7 +26,6 @@ class ResponseIsMorphing
      *
      * @param \Dingo\Api\Http\Response $response
      * @param string                   $content
-     *
      * @return void
      */
     public function __construct(Response $response, &$content)

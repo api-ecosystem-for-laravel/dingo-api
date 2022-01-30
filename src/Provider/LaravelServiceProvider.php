@@ -130,7 +130,6 @@ class LaravelServiceProvider extends DingoServiceProvider
      * Add the request middleware to the beginning of the kernel.
      *
      * @param \Illuminate\Contracts\Http\Kernel $kernel
-     *
      * @return void
      */
     protected function addRequestMiddlewareToBeginning(Kernel $kernel)
@@ -145,7 +144,6 @@ class LaravelServiceProvider extends DingoServiceProvider
      *
      * @param string $name
      * @param string $class
-     *
      * @return void
      */
     protected function addMiddlewareAlias($name, $class)
@@ -164,7 +162,6 @@ class LaravelServiceProvider extends DingoServiceProvider
      * our request through them, exactly how the developer wanted.
      *
      * @param \Illuminate\Contracts\Http\Kernel $kernel
-     *
      * @return array
      */
     protected function gatherAppMiddleware(Kernel $kernel)
@@ -180,7 +177,6 @@ class LaravelServiceProvider extends DingoServiceProvider
      *
      * @param FormRequest $form
      * @param IlluminateRequest $current
-     *
      * @return void
      */
     protected function initializeRequest(FormRequest $form, IlluminateRequest $current)

@@ -30,7 +30,6 @@ class RateLimit
      *
      * @param \Dingo\Api\Routing\Router         $router
      * @param \Dingo\Api\Http\RateLimit\Handler $handler
-     *
      * @return void
      */
     public function __construct(Router $router, Handler $handler)
@@ -44,10 +43,9 @@ class RateLimit
      *
      * @param \Dingo\Api\Http\Request $request
      * @param \Closure                $next
+     * @return mixed
      *
      * @throws \Symfony\Component\HttpKernel\Exception\HttpException
-     *
-     * @return mixed
      */
     public function handle($request, Closure $next)
     {
@@ -80,7 +78,6 @@ class RateLimit
      * Send the response with the rate limit headers.
      *
      * @param \Dingo\Api\Http\Response $response
-     *
      * @return \Dingo\Api\Http\Response
      */
     protected function responseWithHeaders($response)

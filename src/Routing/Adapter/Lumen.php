@@ -79,7 +79,6 @@ class Lumen implements Adapter
      * @param \FastRoute\RouteParser     $parser
      * @param \FastRoute\DataGenerator   $generator
      * @param callable                   $dispatcherResolver
-     *
      * @return void
      */
     public function __construct(Application $app, RouteParser $parser, DataGenerator $generator, callable $dispatcherResolver)
@@ -95,7 +94,6 @@ class Lumen implements Adapter
      *
      * @param \Illuminate\Http\Request $request
      * @param string                   $version
-     *
      * @return mixed
      */
     public function dispatch(Request $request, $version)
@@ -120,7 +118,6 @@ class Lumen implements Adapter
      * Merge the old application routes with the API routes.
      *
      * @param string $version
-     *
      * @return array
      */
     protected function mergeOldRoutes($version)
@@ -142,7 +139,6 @@ class Lumen implements Adapter
      * Normalize the request URI so that Lumen can properly dispatch it.
      *
      * @param \Illuminate\Http\Request $request
-     *
      * @return void
      */
     protected function normalizeRequestUri(Request $request)
@@ -159,7 +155,6 @@ class Lumen implements Adapter
      *
      * @param mixed                    $route
      * @param \Illuminate\Http\Request $request
-     *
      * @return array
      */
     public function getRouteProperties($route, Request $request)
@@ -182,7 +177,6 @@ class Lumen implements Adapter
      * @param array  $versions
      * @param string $uri
      * @param mixed  $action
-     *
      * @return void
      */
     public function addRoute(array $methods, array $versions, $uri, $action)
@@ -200,7 +194,6 @@ class Lumen implements Adapter
      * Break a URI that has optional segments into individual URIs.
      *
      * @param string $uri
-     *
      * @return array
      */
     protected function breakUriSegments($uri)
@@ -231,7 +224,6 @@ class Lumen implements Adapter
      * Create the route collections for the versions.
      *
      * @param array $versions
-     *
      * @return void
      */
     protected function createRouteCollections(array $versions)
@@ -276,7 +268,6 @@ class Lumen implements Adapter
      * Get all routes or only for a specific version.
      *
      * @param string $version
-     *
      * @return mixed
      */
     public function getRoutes($version = null)
@@ -292,7 +283,6 @@ class Lumen implements Adapter
      * Get routes in an iterable form.
      *
      * @param string $version
-     *
      * @return \ArrayIterator
      */
     public function getIterableRoutes($version = null)
@@ -338,7 +328,6 @@ class Lumen implements Adapter
      * Normalize the FastRoute static routes so they're the same across multiple versions.
      *
      * @param array $routes
-     *
      * @return array
      */
     protected function normalizeStaticRoutes(array $routes)
@@ -369,7 +358,6 @@ class Lumen implements Adapter
      * Determine if a string is an HTTP method.
      *
      * @param string $string
-     *
      * @return bool
      */
     protected function stringIsHttpMethod($string)
@@ -383,7 +371,6 @@ class Lumen implements Adapter
      * Set the routes on the adapter.
      *
      * @param array $routes
-     *
      * @return void
      */
     public function setRoutes(array $routes)
@@ -395,7 +382,6 @@ class Lumen implements Adapter
      * Prepare a route for serialization.
      *
      * @param mixed $route
-     *
      * @return mixed
      */
     public function prepareRouteForSerialization($route)
@@ -407,7 +393,6 @@ class Lumen implements Adapter
      * Gather the route middlewares.
      *
      * @param array $route
-     *
      * @return array
      */
     public function gatherRouteMiddlewares($route)
@@ -421,7 +406,6 @@ class Lumen implements Adapter
      *
      * @param array  $route
      * @param string $method
-     *
      * @return array
      */
     private function setRouteMethods($route, $method)

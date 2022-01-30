@@ -73,7 +73,6 @@ trait JsonOptionalFormatting
      *
      * @param string $content
      * @param array  $jsonEncodeOptions
-     *
      * @return string
      */
     protected function performJsonEncoding($content, array $jsonEncodeOptions = [])
@@ -93,7 +92,6 @@ trait JsonOptionalFormatting
      * Filter JSON encode options array against the whitelist array.
      *
      * @param array $jsonEncodeOptions
-     *
      * @return array
      */
     protected function filterJsonEncodeOptions(array $jsonEncodeOptions)
@@ -105,7 +103,6 @@ trait JsonOptionalFormatting
      * Sweep JSON encode options together to get options' bitmask.
      *
      * @param array $jsonEncodeOptions
-     *
      * @return int
      */
     protected function calucateJsonEncodeOptionsBitmask(array $jsonEncodeOptions)
@@ -119,7 +116,6 @@ trait JsonOptionalFormatting
      * @param string $jsonString
      * @param string $indentStyle
      * @param int    $defaultIndentSize
-     *
      * @return string
      */
     protected function indentPrettyPrintedJson($jsonString, $indentStyle, $defaultIndentSize = 2)
@@ -144,7 +140,6 @@ trait JsonOptionalFormatting
      * Get indent char for given indent style.
      *
      * @param string $indentStyle
-     *
      * @return string
      */
     protected function getIndentCharForIndentStyle($indentStyle)
@@ -168,7 +163,6 @@ trait JsonOptionalFormatting
      * Determine if indent style is allowed to have various indent size.
      *
      * @param string $indentStyle
-     *
      * @return bool
      */
     protected function hasVariousIndentSize($indentStyle)
@@ -184,7 +178,6 @@ trait JsonOptionalFormatting
      * @param string $indentChar    Char, used for indent (default is tab)
      * @param int    $indentSize    Number of times to repeat indent char per one indent level
      * @param int    $defaultSpaces Default number of indent spaces after json_encode()
-     *
      * @return string
      */
     protected function peformIndentation($jsonString, $indentChar = "\t", $indentSize = 1, $defaultSpaces = 4)

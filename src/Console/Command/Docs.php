@@ -81,7 +81,6 @@ class Docs extends Command
      * @param \Dingo\Blueprint\Writer    $writer
      * @param string                     $name
      * @param string                     $version
-     *
      * @return void
      */
     public function __construct(Router $router, Blueprint $blueprint, Writer $writer, $name, $version)
@@ -192,7 +191,6 @@ class Docs extends Command
      *
      * @param \Illuminate\Support\Collection $controllers
      * @param object                         $controller
-     *
      * @return void
      */
     protected function addControllerIfNotExists(Collection $controllers, $controller)

@@ -18,7 +18,6 @@ class Prefix implements Validator
      * Create a new prefix validator instance.
      *
      * @param string $prefix
-     *
      * @return void
      */
     public function __construct($prefix)
@@ -31,7 +30,6 @@ class Prefix implements Validator
      * API prefix.
      *
      * @param \Illuminate\Http\Request $request
-     *
      * @return bool
      */
     public function validate(Request $request)
@@ -47,7 +45,6 @@ class Prefix implements Validator
      * Explode array on slash and remove empty values.
      *
      * @param array $array
-     *
      * @return array
      */
     protected function filterAndExplode($array)

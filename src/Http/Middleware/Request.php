@@ -68,7 +68,6 @@ class Request
      * @param \Dingo\Api\Routing\Router                    $router
      * @param \Dingo\Api\Http\RequestValidator             $validator
      * @param \Illuminate\Contracts\Events\Dispatcher      $events
-     *
      * @return void
      */
     public function __construct(Container $app, ExceptionHandler $exception, Router $router, RequestValidator $validator, EventDispatcher $events)
@@ -85,7 +84,6 @@ class Request
      *
      * @param \Illuminate\Http\Request $request
      * @param \Closure                 $next
-     *
      * @return mixed
      */
     public function handle($request, Closure $next)
@@ -115,7 +113,6 @@ class Request
      * Send the request through the Dingo router.
      *
      * @param \Dingo\Api\Http\Request $request
-     *
      * @return \Dingo\Api\Http\Response
      */
     protected function sendRequestThroughRouter(HttpRequest $request)
@@ -173,7 +170,6 @@ class Request
      * @author Taylor Otwell
      *
      * @param string $middleware
-     *
      * @return array
      */
     protected function parseMiddleware($middleware)
@@ -191,7 +187,6 @@ class Request
      * Gather the middlewares for the route.
      *
      * @param \Dingo\Api\Http\Request $request
-     *
      * @return array
      */
     protected function gatherRouteMiddlewares($request)
@@ -207,7 +202,6 @@ class Request
      * Set the middlewares.
      *
      * @param array $middleware
-     *
      * @return void
      */
     public function setMiddlewares(array $middleware)
@@ -219,7 +213,6 @@ class Request
      * Merge new middlewares onto the existing middlewares.
      *
      * @param array $middleware
-     *
      * @return void
      */
     public function mergeMiddlewares(array $middleware)

@@ -18,7 +18,6 @@ class PrepareController
      * Create a new prepare controller instance.
      *
      * @param \Dingo\Api\Routing\Router $router
-     *
      * @return void
      */
     public function __construct(Router $router)
@@ -31,7 +30,6 @@ class PrepareController
      *
      * @param \Dingo\Api\Http\Request $request
      * @param \Closure                $next
-     *
      * @return mixed
      */
     public function handle($request, Closure $next)
