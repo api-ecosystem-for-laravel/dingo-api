@@ -19,7 +19,7 @@ The Dingo API package is meant to provide you, the developer, with a set of tool
 [![License](https://img.shields.io/packagist/l/api-ecosystem-for-laravel/dingo-api.svg?style=flat-square)](LICENSE)
 [![Development Version](https://img.shields.io/packagist/vpre/api-ecosystem-for-laravel/dingo-api.svg?style=flat-square)](https://packagist.org/packages/api-ecosystem-for-laravel/dingo-api)
 [![Monthly Installs](https://img.shields.io/packagist/dm/api-ecosystem-for-laravel/dingo-api.svg?style=flat-square)](https://packagist.org/packages/api-ecosystem-for-laravel/dingo-api)
-[![StyleCI](https://styleci.io/repos/18673522/shield)](https://styleci.io/repos/18673522)
+[![StyleCI](https://styleci.io/repos/452338988/shield)](https://styleci.io/repos/452338988)
 
 ## Features
 
