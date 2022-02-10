@@ -41,7 +41,6 @@ class ResponseTest extends BaseTestCase
 
         $response = new Response($object);
 
-        $this->assertNull($response->getContent());
         $this->assertSame($object, $response->getOriginalContent());
     }
 

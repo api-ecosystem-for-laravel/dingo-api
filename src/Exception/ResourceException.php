@@ -34,7 +34,7 @@ class ResourceException extends HttpException implements MessageBagErrors
             $this->errors = is_array($errors) ? new MessageBag($errors) : $errors;
         }
 
-        parent::__construct(422, $message, $previous, $headers, $code);
+        parent::__construct(422, $message ?? '', $previous, $headers, $code);
     }
 
     /**
