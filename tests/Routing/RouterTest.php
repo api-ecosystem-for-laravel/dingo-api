@@ -34,8 +34,6 @@ class RouterTest extends Adapter\BaseAdapterTest
                     $this->router->getCurrentRoute()->getScopes(),
                     'Router did not merge string based group scopes with route based array scopes.'
                 );
-
-                return '';
             }]);
 
             $this->router->get('baz', function () {
@@ -44,8 +42,6 @@ class RouterTest extends Adapter\BaseAdapterTest
                     $this->router->getCurrentRoute()->getScopes(),
                     'Router did not merge string based group scopes with route.'
                 );
-
-                return '';
             });
         });
 

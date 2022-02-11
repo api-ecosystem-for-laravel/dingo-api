@@ -124,7 +124,7 @@ class Response extends IlluminateResponse
      */
     public function morph($format = 'json')
     {
-        $this->content = $this->getOriginalContent();
+        $this->content = $this->getOriginalContent() ?? '';
 
         $this->fireMorphingEvent();
 
