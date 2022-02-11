@@ -2,7 +2,6 @@
 
 namespace Dingo\Api\Tests\Stubs;
 
-use Closure;
 use Illuminate\Container\Container;
 use Illuminate\Contracts\Foundation\Application;
 
@@ -33,11 +32,6 @@ class Application9Stub extends Container implements Application
         //
     }
 
-    public function environmentPath()
-    {
-        //
-    }
-
     public function resourcePath($path = '')
     {
         //
@@ -60,7 +54,31 @@ class Application9Stub extends Container implements Application
 
     public function runningUnitTests()
     {
-        // TODO: Implement runningUnitTests() method.
+        //
+    }
+
+    public function maintenanceMode() {
+//        return new class implements MaintenanceMode {
+//            public function activate(array $payload): void
+//            {
+//                // TODO: Implement activate() method.
+//            }
+//
+//            public function deactivate(): void
+//            {
+//                // TODO: Implement deactivate() method.
+//            }
+//
+//            public function active(): bool
+//            {
+//                return false;
+//            }
+//
+//            public function data(): array
+//            {
+//                return [];
+//            }
+//        };
     }
 
     public function isDownForMaintenance()
@@ -108,46 +126,6 @@ class Application9Stub extends Container implements Application
         //
     }
 
-    public function configurationIsCached()
-    {
-        //
-    }
-
-    public function detectEnvironment(Closure $callback)
-    {
-        //
-    }
-
-    public function environmentFile()
-    {
-        //
-    }
-
-    public function environmentFilePath()
-    {
-        //
-    }
-
-    public function getCachedConfigPath()
-    {
-        //
-    }
-
-    public function getCachedServicesPath()
-    {
-        //
-    }
-
-    public function getCachedPackagesPath()
-    {
-        //
-    }
-
-    public function getCachedRoutesPath()
-    {
-        //
-    }
-
     public function getLocale()
     {
         //
@@ -173,16 +151,6 @@ class Application9Stub extends Container implements Application
         //
     }
 
-    public function loadEnvironmentFrom($file)
-    {
-        //
-    }
-
-    public function routesAreCached()
-    {
-        //
-    }
-
     public function setLocale($locale)
     {
         //
@@ -193,12 +161,13 @@ class Application9Stub extends Container implements Application
         //
     }
 
-    public function terminate()
+    public function terminating($callback)
     {
         //
     }
 
-    public function maintenanceMode() {}
-
-    public function terminating($callback) {}
+    public function terminate()
+    {
+        //
+    }
 }

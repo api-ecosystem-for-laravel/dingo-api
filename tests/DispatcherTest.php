@@ -212,6 +212,7 @@ class DispatcherTest extends BaseTestCase
         $this->router->version('v1', function () use ($user) {
             $this->router->get('test', function () use ($user) {
                 $this->assertSame($user, $this->auth->user());
+
                 return '';
             });
         });
@@ -268,6 +269,7 @@ class DispatcherTest extends BaseTestCase
                 $this->assertSame('bar', $this->router->getCurrentRequest()->input('foo'));
                 $this->dispatcher->with(['foo' => 'baz'])->post('api/bar');
                 $this->assertSame('bar', $this->router->getCurrentRequest()->input('foo'));
+
                 return '';
             });
 
@@ -275,11 +277,13 @@ class DispatcherTest extends BaseTestCase
                 $this->assertSame('baz', $this->router->getCurrentRequest()->input('foo'));
                 $this->dispatcher->with(['foo' => 'bazinga'])->post('api/baz');
                 $this->assertSame('baz', $this->router->getCurrentRequest()->input('foo'));
+
                 return '';
             });
 
             $this->router->post('baz', function () {
                 $this->assertSame('bazinga', $this->router->getCurrentRequest()->input('foo'));
+
                 return '';
             });
         });
@@ -294,6 +298,7 @@ class DispatcherTest extends BaseTestCase
                 $this->assertSame('foo', $this->router->getCurrentRoute()->getName());
                 $this->dispatcher->post('bar');
                 $this->assertSame('foo', $this->router->getCurrentRoute()->getName());
+
                 return '';
             }]);
 
@@ -301,11 +306,13 @@ class DispatcherTest extends BaseTestCase
                 $this->assertSame('bar', $this->router->getCurrentRoute()->getName());
                 $this->dispatcher->post('baz');
                 $this->assertSame('bar', $this->router->getCurrentRoute()->getName());
+
                 return '';
             }]);
 
             $this->router->post('baz', ['as' => 'bazinga', function () {
                 $this->assertSame('bazinga', $this->router->getCurrentRoute()->getName());
+
                 return '';
             }]);
         });
@@ -318,11 +325,13 @@ class DispatcherTest extends BaseTestCase
         $this->router->version('v1', function () {
             $this->router->post('foo', function () {
                 $this->assertSame('jason', $this->router->getCurrentRequest()->json('username'));
+
                 return '';
             });
 
             $this->router->post('bar', function () {
                 $this->assertSame('mat', $this->router->getCurrentRequest()->json('username'));
+
                 return '';
             });
         });
