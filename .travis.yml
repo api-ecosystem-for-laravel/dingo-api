@@ -12,6 +12,7 @@ env:
     - xdebug=false
   jobs:
     - LARAVEL_VERSION=8.*
+    - LARAVEL_VERSION=9.*
 
 cache:
   directories:

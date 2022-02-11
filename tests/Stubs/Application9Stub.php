@@ -57,7 +57,8 @@ class Application9Stub extends Container implements Application
         //
     }
 
-    public function maintenanceMode() {
+    public function maintenanceMode()
+    {
 //        return new class implements MaintenanceMode {
 //            public function activate(array $payload): void
 //            {
