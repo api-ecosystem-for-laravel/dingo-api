@@ -78,7 +78,7 @@ class JsonTest extends BaseTestCase
 
     public function testMorphingUnknownType()
     {
-        $this->assertSame(1, (new Response(1))->morph()->getContent());
+        $this->assertSame('1', (new Response(1))->morph()->getContent());
     }
 
     public function testMorphingEloquentModelWithCamelCasing()

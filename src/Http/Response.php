@@ -124,7 +124,7 @@ class Response extends IlluminateResponse
      */
     public function morph($format = 'json')
     {
-        $this->content = $this->getOriginalContent();
+        $this->content = $this->getOriginalContent() ?? '';
 
         $this->fireMorphingEvent();
 
@@ -192,7 +192,7 @@ class Response extends IlluminateResponse
     /**
      * {@inheritdoc}
      */
-    public function setContent($content)
+    public function setContent(mixed $content): static
     {
         // Attempt to set the content string, if we encounter an unexpected value
         // then we most likely have an object that cannot be type cast. In that

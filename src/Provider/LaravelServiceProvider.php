@@ -16,6 +16,7 @@ use Dingo\Api\Http\Middleware\PrepareController;
 use Illuminate\Http\Request as IlluminateRequest;
 use Dingo\Api\Routing\Adapter\Laravel as LaravelAdapter;
 use Illuminate\Contracts\Validation\ValidatesWhenResolved;
+use Symfony\Component\HttpFoundation\Exception\SessionNotFoundException;
 
 class LaravelServiceProvider extends DingoServiceProvider
 {
@@ -197,8 +198,11 @@ class LaravelServiceProvider extends DingoServiceProvider
 
         $form->setJson($current->json());
 
-        if ($session = $current->getSession()) {
-            $form->setLaravelSession($session);
+        try {
+            if ($session = $current->getSession()) {
+                $form->setLaravelSession($current->getSession());
+            }
+        } catch (SessionNotFoundException $exception) {
         }
 
         $form->setUserResolver($current->getUserResolver());

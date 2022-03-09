@@ -16,6 +16,7 @@ use Illuminate\Http\Request as IlluminateRequest;
 use Dingo\Api\Routing\Adapter\Lumen as LumenAdapter;
 use Illuminate\Contracts\Validation\ValidatesWhenResolved;
 use FastRoute\DataGenerator\GroupCountBased as GcbDataGenerator;
+use Symfony\Component\HttpFoundation\Exception\SessionNotFoundException;
 
 class LumenServiceProvider extends DingoServiceProvider
 {
@@ -172,8 +173,11 @@ class LumenServiceProvider extends DingoServiceProvider
 
         $form->setJson($current->json());
 
-        if ($session = $current->getSession()) {
-            $form->setLaravelSession($session);
+        try {
+            if ($session = $current->getSession()) {
+                $form->setLaravelSession($current->getSession());
+            }
+        } catch (SessionNotFoundException $exception) {
         }
 
         $form->setUserResolver($current->getUserResolver());
