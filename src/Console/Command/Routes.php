@@ -98,6 +98,8 @@ class Routes extends RouteListCommand
             foreach ($collection->getRoutes() as $route) {
                 $routes[] = $this->filterRoute([
                     'host' => $route->domain(),
+                    'domain' => $route->domain(),
+                    'middleware' => json_encode($route->middleware()),
                     'method' => implode('|', $route->methods()),
                     'uri' => $route->uri(),
                     'name' => $route->getName(),
