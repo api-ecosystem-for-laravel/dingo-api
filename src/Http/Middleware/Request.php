@@ -3,56 +3,21 @@
 namespace Dingo\Api\Http\Middleware;
 
 use Closure;
-use Exception;
-use Dingo\Api\Routing\Router;
-use Laravel\Lumen\Application;
-use Illuminate\Pipeline\Pipeline;
-use Dingo\Api\Http\RequestValidator;
-use Dingo\Api\Event\RequestWasMatched;
-use Dingo\Api\Http\Request as HttpRequest;
-use Illuminate\Contracts\Container\Container;
 use Dingo\Api\Contract\Debug\ExceptionHandler;
 use Dingo\Api\Contract\Http\Request as RequestContract;
-use Illuminate\Contracts\Events\Dispatcher as EventDispatcher;
+use Dingo\Api\Event\RequestWasMatched;
+use Dingo\Api\Http\Request as HttpRequest;
+use Dingo\Api\Http\RequestValidator;
+use Dingo\Api\Http\Response;
+use Dingo\Api\Routing\Router;
+use Exception;
 use Illuminate\Contracts\Debug\ExceptionHandler as LaravelExceptionHandler;
+use Illuminate\Contracts\Events\Dispatcher as EventDispatcher;
+use Illuminate\Pipeline\Pipeline;
+use Laravel\Lumen\Application;
 
 class Request
 {
-    /**
-     * Application instance.
-     *
-     * @var \Illuminate\Contracts\Foundation\Application
-     */
-    protected $app;
-
-    /**
-     * Exception handler instance.
-     *
-     * @var \Dingo\Api\Contract\Debug\ExceptionHandler
-     */
-    protected $exception;
-
-    /**
-     * Router instance.
-     *
-     * @var \Dingo\Api\Routing\Router
-     */
-    protected $router;
-
-    /**
-     * HTTP validator instance.
-     *
-     * @var \Dingo\Api\Http\Validator
-     */
-    protected $validator;
-
-    /**
-     * Event dispatcher instance.
-     *
-     * @var \Illuminate\Contracts\Events\Dispatcher
-     */
-    protected $events;
-
     /**
      * Array of middleware.
      *
@@ -61,49 +26,31 @@ class Request
     protected $middleware = [];
 
     /**
-     * Create a new request middleware instance.
-     *
-     * @param \Illuminate\Contracts\Foundation\Application $app
-     * @param \Dingo\Api\Contract\Debug\ExceptionHandler   $exception
-     * @param \Dingo\Api\Routing\Router                    $router
-     * @param \Dingo\Api\Http\RequestValidator             $validator
-     * @param \Illuminate\Contracts\Events\Dispatcher      $events
-     * @return void
-     */
-    public function __construct(Container $app, ExceptionHandler $exception, Router $router, RequestValidator $validator, EventDispatcher $events)
-    {
-        $this->app = $app;
-        $this->exception = $exception;
-        $this->router = $router;
-        $this->validator = $validator;
-        $this->events = $events;
-    }
-
-    /**
      * Handle an incoming request.
      *
      * @param \Illuminate\Http\Request $request
-     * @param \Closure                 $next
+     * @param Closure                  $next
+     *
      * @return mixed
      */
     public function handle($request, Closure $next)
     {
         try {
-            if ($this->validator->validateRequest($request)) {
-                $this->app->singleton(LaravelExceptionHandler::class, function ($app) {
+            if (app(RequestValidator::class)->validateRequest($request)) {
+                app()->singleton(LaravelExceptionHandler::class, function ($app) {
                     return $app[ExceptionHandler::class];
                 });
 
-                $request = $this->app->make(RequestContract::class)->createFromIlluminate($request);
+                $request = app()->make(RequestContract::class)->createFromIlluminate($request);
 
-                $this->events->dispatch(new RequestWasMatched($request, $this->app));
+                app(EventDispatcher::class)->dispatch(new RequestWasMatched($request, app()));
 
                 return $this->sendRequestThroughRouter($request);
             }
         } catch (Exception $exception) {
-            $this->exception->report($exception);
+            app(ExceptionHandler::class)->report($exception);
 
-            return $this->exception->handle($exception);
+            return app(ExceptionHandler::class)->handle($exception);
         }
 
         return $next($request);
@@ -112,15 +59,16 @@ class Request
     /**
      * Send the request through the Dingo router.
      *
-     * @param \Dingo\Api\Http\Request $request
-     * @return \Dingo\Api\Http\Response
+     * @param HttpRequest $request
+     *
+     * @return Response
      */
     protected function sendRequestThroughRouter(HttpRequest $request)
     {
-        $this->app->instance('request', $request);
+        app()->instance('request', $request);
 
-        return (new Pipeline($this->app))->send($request)->through($this->middleware)->then(function ($request) {
-            return $this->router->dispatch($request);
+        return (new Pipeline(app()))->send($request)->through($this->middleware)->then(function ($request) {
+            return app(Router::class)->dispatch($request);
         });
     }
 
@@ -131,7 +79,8 @@ class Request
      */
     public function terminate($request, $response)
     {
-        if (! ($request = $this->app['request']) instanceof HttpRequest) {
+        $request = app('request');
+        if (!($request instanceof HttpRequest)) {
             return;
         }
 
@@ -156,7 +105,7 @@ class Request
 
             [$name, $parameters] = $this->parseMiddleware($middleware);
 
-            $instance = $this->app->make($name);
+            $instance = app()->make($name);
 
             if (method_exists($instance, 'terminate')) {
                 $instance->terminate($request, $response);
@@ -167,10 +116,11 @@ class Request
     /**
      * Parse a middleware string to get the name and parameters.
      *
+     * @param string $middleware
+     *
+     * @return array
      * @author Taylor Otwell
      *
-     * @param string $middleware
-     * @return array
      */
     protected function parseMiddleware($middleware)
     {
@@ -186,13 +136,15 @@ class Request
     /**
      * Gather the middlewares for the route.
      *
-     * @param \Dingo\Api\Http\Request $request
+     * @param HttpRequest $request
+     *
      * @return array
      */
     protected function gatherRouteMiddlewares($request)
     {
-        if ($route = $request->route()) {
-            return $this->router->gatherRouteMiddlewares($route);
+        $route = $request->route();
+        if (null !== $route) {
+            return app(Router::class)->gatherRouteMiddlewares($route);
         }
 
         return [];
@@ -202,6 +154,7 @@ class Request
      * Set the middlewares.
      *
      * @param array $middleware
+     *
      * @return void
      */
     public function setMiddlewares(array $middleware)
@@ -213,6 +166,7 @@ class Request
      * Merge new middlewares onto the existing middlewares.
      *
      * @param array $middleware
+     *
      * @return void
      */
     public function mergeMiddlewares(array $middleware)

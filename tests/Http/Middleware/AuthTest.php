@@ -3,6 +3,7 @@
 namespace Dingo\Api\Tests\Http\Middleware;
 
 use Dingo\Api\Auth\Auth;
+use Dingo\Api\Contract\Routing\Adapter;
 use Dingo\Api\Http\Middleware\Auth as AuthMiddleware;
 use Dingo\Api\Http\Request;
 use Dingo\Api\Routing\Route;
@@ -44,15 +45,25 @@ class AuthTest extends BaseTestCase
         $this->router = m::mock(Router::class);
         $this->auth = m::mock(Auth::class);
         $this->middleware = new AuthMiddleware($this->router, $this->auth);
+
+        Container::setInstance($this->container);
+        app()->instance(Adapter::class, $this->adapter);
+        app()->instance(Router::class, $this->router);
+        app()->instance(Auth::class, $this->auth);
     }
 
     public function testProtectedRouteFiresAuthenticationAndPasses()
     {
         $request = Request::create('test', 'GET');
 
-        $route = new Route($this->adapter, $this->container, $request, new IlluminateRoute('GET', '/test', [
-            'providers' => [],
-        ]));
+        $route = new Route(
+            $this->adapter,
+            $this->container,
+            $request,
+            new IlluminateRoute('GET', '/test', [
+                'providers' => [],
+            ])
+        );
 
         $this->auth->shouldReceive('check')->once()->with(false)->andReturn(false);
         $this->auth->shouldReceive('authenticate')->once()->with([])->andReturn(null);
@@ -68,9 +79,14 @@ class AuthTest extends BaseTestCase
     {
         $request = Request::create('test', 'GET');
 
-        $route = new Route($this->adapter, $this->container, $request, new IlluminateRoute('GET', '/test', [
-            'providers' => [],
-        ]));
+        $route = new Route(
+            $this->adapter,
+            $this->container,
+            $request,
+            new IlluminateRoute('GET', '/test', [
+                'providers' => [],
+            ])
+        );
 
         $this->auth->shouldReceive('check')->once()->with(false)->andReturn(true);
 
@@ -89,9 +105,14 @@ class AuthTest extends BaseTestCase
 
         $request = Request::create('test', 'GET');
 
-        $route = new Route($this->adapter, $this->container, $request, new IlluminateRoute('GET', '/test', [
-            'providers' => [],
-        ]));
+        $route = new Route(
+            $this->adapter,
+            $this->container,
+            $request,
+            new IlluminateRoute('GET', '/test', [
+                'providers' => [],
+            ])
+        );
 
         $this->auth->shouldReceive('check')->once()->with(false)->andReturn(false);
         $this->auth->shouldReceive('authenticate')->once()->with([])->andThrow($exception);

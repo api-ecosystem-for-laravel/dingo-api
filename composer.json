@@ -20,19 +20,12 @@
         "league/fractal": "^0.19"
     },
     "require-dev": {
-        "friendsofphp/php-cs-fixer": "~2",
-        "illuminate/auth": "^7.0|^8.0",
-        "illuminate/cache": "^7.0|^8.0",
-        "illuminate/console": "^7.0|^8.0",
-        "illuminate/database": "^7.0|^8.0",
-        "illuminate/events": "^7.0|^8.0",
-        "illuminate/filesystem": "^7.0|^8.0",
-        "illuminate/log": "^7.0|^8.0",
-        "illuminate/pagination": "^7.0|^8.0",
+        "friendsofphp/php-cs-fixer": "^3.8",
         "laravel/lumen-framework": "^7.0|^8.0",
+        "laravel/laravel": "^7.0|^8.0",
         "mockery/mockery": "~1.0",
         "phpunit/phpunit": "^8.5|^9.0",
-        "squizlabs/php_codesniffer": "~2.0",
+        "squizlabs/php_codesniffer": "3.*",
         "php-open-source-saver/jwt-auth": "^1.4"
     },
     "suggest": {

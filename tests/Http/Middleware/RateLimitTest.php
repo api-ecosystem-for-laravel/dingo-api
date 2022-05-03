@@ -2,6 +2,8 @@
 
 namespace Dingo\Api\Tests\Http\Middleware;
 
+use Dingo\Api\Auth\Auth;
+use Dingo\Api\Contract\Routing\Adapter;
 use Dingo\Api\Exception\RateLimitExceededException;
 use Dingo\Api\Http\InternalRequest;
 use Dingo\Api\Http\Middleware\RateLimit;
@@ -49,6 +51,10 @@ class RateLimitTest extends BaseTestCase
         $this->cache = new CacheManager($this->container);
         $this->handler = new Handler($this->container, $this->cache, []);
         $this->middleware = new RateLimit($this->router, $this->handler);
+
+        Container::setInstance($this->container);
+        app()->instance(Router::class, $this->router);
+        app()->instance(Handler::class, $this->handler);
 
         $this->handler->setRateLimiter(function ($container, $request) {
             return $request->getClientIp();

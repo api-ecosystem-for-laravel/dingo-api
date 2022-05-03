@@ -2,7 +2,7 @@
 
 namespace Dingo\Api\Http\Validation;
 
-use Illuminate\support\Str;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Dingo\Api\Contract\Http\Validator;
 

@@ -8,44 +8,19 @@ use Dingo\Api\Routing\Router;
 use Dingo\Api\Http\InternalRequest;
 use Dingo\Api\Http\RateLimit\Handler;
 use Dingo\Api\Exception\RateLimitExceededException;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class RateLimit
 {
     /**
-     * Router instance.
-     *
-     * @var \Dingo\Api\Routing\Router
-     */
-    protected $router;
-
-    /**
-     * Rate limit handler instance.
-     *
-     * @var \Dingo\Api\Http\RateLimit\Handler
-     */
-    protected $handler;
-
-    /**
-     * Create a new rate limit middleware instance.
-     *
-     * @param \Dingo\Api\Routing\Router         $router
-     * @param \Dingo\Api\Http\RateLimit\Handler $handler
-     * @return void
-     */
-    public function __construct(Router $router, Handler $handler)
-    {
-        $this->router = $router;
-        $this->handler = $handler;
-    }
-
-    /**
      * Perform rate limiting before a request is executed.
      *
      * @param \Dingo\Api\Http\Request $request
-     * @param \Closure                $next
+     * @param Closure                 $next
+     *
      * @return mixed
      *
-     * @throws \Symfony\Component\HttpKernel\Exception\HttpException
+     * @throws HttpException
      */
     public function handle($request, Closure $next)
     {
@@ -53,21 +28,22 @@ class RateLimit
             return $next($request);
         }
 
-        $route = $this->router->getCurrentRoute();
+        $route   = app(Router::class)->getCurrentRoute();
+        $handler = app(Handler::class);
 
         if ($route->hasThrottle()) {
-            $this->handler->setThrottle($route->getThrottle());
+            $handler->setThrottle($route->getThrottle());
         }
 
-        $this->handler->rateLimitRequest($request, $route->getRateLimit(), $route->getRateLimitExpiration());
+        $handler->rateLimitRequest($request, $route->getRateLimit(), $route->getRateLimitExpiration());
 
-        if ($this->handler->exceededRateLimit()) {
+        if ($handler->exceededRateLimit()) {
             throw new RateLimitExceededException('You have exceeded your rate limit.', null, $this->getHeaders());
         }
 
         $response = $next($request);
 
-        if ($this->handler->requestWasRateLimited()) {
+        if ($handler->requestWasRateLimited()) {
             return $this->responseWithHeaders($response);
         }
 
@@ -77,8 +53,9 @@ class RateLimit
     /**
      * Send the response with the rate limit headers.
      *
-     * @param \Dingo\Api\Http\Response $response
-     * @return \Dingo\Api\Http\Response
+     * @param Response $response
+     *
+     * @return Response
      */
     protected function responseWithHeaders($response)
     {
@@ -96,10 +73,12 @@ class RateLimit
      */
     protected function getHeaders()
     {
+        $handler = app(Handler::class);
+
         return [
-            'X-RateLimit-Limit' => $this->handler->getThrottleLimit(),
-            'X-RateLimit-Remaining' => $this->handler->getRemainingLimit(),
-            'X-RateLimit-Reset' => $this->handler->getRateLimitReset(),
+            'X-RateLimit-Limit'     => $handler->getThrottleLimit(),
+            'X-RateLimit-Remaining' => $handler->getRemainingLimit(),
+            'X-RateLimit-Reset'     => $handler->getRateLimitReset(),
         ];
     }
 }
