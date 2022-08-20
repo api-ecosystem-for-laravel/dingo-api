@@ -126,7 +126,7 @@ class Factory
         if (! is_null($item)) {
             $class = get_class($item);
         } else {
-            $class = \StdClass::class;
+            $class = \stdClass::class;
         }
 
         if ($parameters instanceof \Closure) {
