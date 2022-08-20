@@ -2,6 +2,7 @@
 
 namespace Dingo\Api\Tests;
 
+use Dingo\Api\Tests\Stubs\Application9Stub;
 use Dingo\Api\Tests\Stubs\ApplicationStub;
 use Dingo\Api\Tests\Stubs\Application8Stub;
 use Dingo\Api\Tests\Stubs\Application7Stub;
@@ -54,7 +55,9 @@ trait ChecksLaravelVersionTrait
         $version = str_replace('v', '', $version);
 
         // Return the version stub for the right version
-        if (version_compare($version, '8.0.0', '>=')) {
+        if (version_compare($version, '9.0.0', '>=')) {
+            return new Application9Stub;
+        } elseif (version_compare($version, '8.0.0', '>=')) {
             return new Application8Stub;
         } elseif (version_compare($version, '7.0.0', '>=')) {
             return new Application7Stub;
