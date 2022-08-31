@@ -24,7 +24,8 @@ class UrlGeneratorTest extends Adapter\BaseAdapterTest
     {
         $this->router = new Router($this->adapter, $this->exception, $this->container, null, null);
         $this->router->version('v1', function (Router $router) {
-            $router->any('foo', function() {})->name('my.route');
+            $router->any('foo', function () {
+            })->name('my.route');
         });
 
         $generator = new UrlGenerator($this->createRequest('/foo', 'GET'));
@@ -55,7 +56,8 @@ class UrlGeneratorTest extends Adapter\BaseAdapterTest
     {
         $this->router = new Router($this->adapter, $this->exception, $this->container, 'dingo.dev', null);
         $this->router->version('v1', function (Router $router) {
-            $router->any('foo', function() {})->name('my.route');
+            $router->any('foo', function () {
+            })->name('my.route');
         });
 
         $generator = new UrlGenerator($this->createRequest('/foo', 'GET'));
@@ -69,7 +71,8 @@ class UrlGeneratorTest extends Adapter\BaseAdapterTest
     {
         $this->router = new Router($this->adapter, $this->exception, $this->container, 'dingo.dev', 'api');
         $this->router->version('v1', function (Router $router) {
-            $router->any('foo', function() {})->name('my.route');
+            $router->any('foo', function () {
+            })->name('my.route');
         });
 
         $generator = new UrlGenerator($this->createRequest('/foo', 'GET'));
@@ -83,7 +86,8 @@ class UrlGeneratorTest extends Adapter\BaseAdapterTest
     {
         $this->router = new Router($this->adapter, $this->exception, $this->container, 'dingo.dev', 'api');
         $this->router->version('v1', function (Router $router) {
-            $router->any('foo/{bar}', function() {})->name('my.route');
+            $router->any('foo/{bar}', function () {
+            })->name('my.route');
         });
 
         $generator = new UrlGenerator($this->createRequest('/foo', 'GET'));
@@ -97,7 +101,8 @@ class UrlGeneratorTest extends Adapter\BaseAdapterTest
     {
         $this->router = new Router($this->adapter, $this->exception, $this->container, 'dingo.dev', 'api');
         $this->router->version('v1', function (Router $router) {
-            $router->any('foo/{bar}', function() {})->name('my.route');
+            $router->any('foo/{bar}', function () {
+            })->name('my.route');
         });
 
         $generator = new UrlGenerator($this->createRequest('/foo', 'GET'));
