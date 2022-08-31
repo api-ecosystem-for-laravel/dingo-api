@@ -33,4 +33,13 @@ class FractalTest extends BaseTestCase
 
         $this->assertEquals(['foo', 'bar'], $requestedIncludes);
     }
+
+    public function testParseFractalWithoutAnyGivenIncludes()
+    {
+        $request = Request::create('/', 'GET');
+        $this->fractal->parseFractalIncludes($request);
+        $requestedIncludes = $this->fractal->getFractal()->getRequestedIncludes();
+
+        $this->assertEquals([], $requestedIncludes);
+    }
 }
