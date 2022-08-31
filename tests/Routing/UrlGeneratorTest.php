@@ -41,7 +41,7 @@ class UrlGeneratorTest extends Adapter\BaseAdapterTest
         $this->router->version('v1', function (Router $router) {
             $router->any('foo', [
                 'as' => 'my.route',
-                'uses' => RoutingControllerStub::class . '@index',
+                'uses' => RoutingControllerStub::class.'@index',
             ]);
         });
 
