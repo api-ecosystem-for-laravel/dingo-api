@@ -60,7 +60,7 @@ class DingoServiceProvider extends ServiceProvider
 
         $this->registerTransformer();
 
-        $this->registerDocsCommand();
+        // $this->registerDocsCommand();
 
         if (class_exists('Illuminate\Foundation\Application', false)) {
             $this->commands([
