@@ -2,6 +2,7 @@
 
 namespace Dingo\Api\Exception;
 
+use Closure;
 use Dingo\Api\Http\Request;
 use Exception;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
