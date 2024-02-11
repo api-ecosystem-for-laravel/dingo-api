@@ -2,6 +2,7 @@
 
 namespace Dingo\Api\Exception;
 
+use Closure;
 use Dingo\Api\Http\Request;
 use Exception;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
@@ -10,6 +11,7 @@ use Illuminate\Http\Response;
 use Dingo\Api\Contract\Debug\ExceptionHandler;
 use Dingo\Api\Contract\Debug\MessageBagErrors;
 use Illuminate\Contracts\Debug\ExceptionHandler as IlluminateExceptionHandler;
+use Illuminate\Foundation\Exceptions\ReportableHandler;
 use Illuminate\Validation\ValidationException;
 use ReflectionFunction;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -396,5 +398,22 @@ class Handler implements ExceptionHandler, IlluminateExceptionHandler
     public function setDebug($debug)
     {
         $this->debug = $debug;
+    }
+
+    /**
+     * Register a reportable callback.
+     *
+     * @param  callable  $reportUsing
+     * @return \Illuminate\Foundation\Exceptions\ReportableHandler
+     */
+    public function reportable(callable $reportUsing)
+    {
+        if (! $reportUsing instanceof Closure) {
+            $reportUsing = Closure::fromCallable($reportUsing);
+        }
+
+        return tap(new ReportableHandler($reportUsing), function ($callback) {
+            $this->reportCallbacks[] = $callback;
+        });
     }
 }
