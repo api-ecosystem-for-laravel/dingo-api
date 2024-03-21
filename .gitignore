@@ -5,3 +5,5 @@ phpunit.xml
 storage
 vendor
 .php_cs
+.phpunit.result.cache
+.phpunit.result.cache/
