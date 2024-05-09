@@ -154,7 +154,7 @@ class Response extends IlluminateResponse
         } elseif (is_array($this->content) || $this->content instanceof ArrayObject || $this->content instanceof Arrayable) {
             $this->content = $formatter->formatArray($this->content);
         } elseif ($this->content instanceof stdClass) {
-            $this->content = $formatter->formatArray((array)$this->content);
+            $this->content = $formatter->formatArray((array) $this->content);
         } else {
             if (! empty($defaultContentType)) {
                 $this->headers->set('Content-Type', $defaultContentType);
