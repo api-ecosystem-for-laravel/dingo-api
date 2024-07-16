@@ -39,7 +39,7 @@ class Request extends IlluminateRequest implements RequestInterface
 
         try {
             $session = $old->getSession();
-            if($session instanceof SymfonySessionDecorator){
+            if ($session instanceof SymfonySessionDecorator) {
                 $new->setLaravelSession($session->store);
             }
         } catch (SessionNotFoundException $exception) {
