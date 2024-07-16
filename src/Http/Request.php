@@ -5,6 +5,7 @@ namespace Dingo\Api\Http;
 use Dingo\Api\Http\Parser\Accept;
 use Illuminate\Http\Request as IlluminateRequest;
 use Dingo\Api\Contract\Http\Request as RequestInterface;
+use Illuminate\Session\SymfonySessionDecorator;
 use Symfony\Component\HttpFoundation\Exception\SessionNotFoundException;
 
 class Request extends IlluminateRequest implements RequestInterface
@@ -37,8 +38,9 @@ class Request extends IlluminateRequest implements RequestInterface
         );
 
         try {
-            if ($session = $old->getSession()) {
-                $new->setLaravelSession($old->getSession());
+            $session = $old->getSession();
+            if ($session instanceof SymfonySessionDecorator) {
+                $new->setLaravelSession($session->store);
             }
         } catch (SessionNotFoundException $exception) {
         }
