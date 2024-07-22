@@ -9,7 +9,7 @@ use FastRoute\RouteParser\Std as StdRouteParser;
 use Illuminate\Http\Request;
 use Laravel\Lumen\Application;
 
-class LumenTest extends BaseAdapterTest
+class LumenTestAbstract extends BaseAdapterTestAbstract
 {
     public function getAdapterInstance()
     {

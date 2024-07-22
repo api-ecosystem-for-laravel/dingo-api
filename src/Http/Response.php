@@ -35,6 +35,13 @@ class Response extends IlluminateResponse
     protected $binding;
 
     /**
+     * Intermedia content that we are working on. The result content should be a string (symfony)
+     * )
+     * @var mixed Content with which we are working
+     */
+    protected $workingContent;
+
+    /**
      * Array of registered formatters.
      *
      * @var array
@@ -125,12 +132,12 @@ class Response extends IlluminateResponse
      */
     public function morph($format = 'json')
     {
-        $content = $this->getOriginalContent() ?? '';
+        $this->workingContent = $this->getOriginalContent() ?? '';
 
         $this->fireMorphingEvent();
 
-        if (isset(static::$transformer) && static::$transformer->transformableResponse($content)) {
-            $content = static::$transformer->transform($content);
+        if (isset(static::$transformer) && static::$transformer->transformableResponse($this->workingContent)) {
+            $this->workingContent = static::$transformer->transform($this->workingContent);
         }
 
         $formatter = static::getFormatter($format);
@@ -147,21 +154,21 @@ class Response extends IlluminateResponse
 
         $this->fireMorphedEvent();
 
-        if ($content instanceof EloquentModel) {
-            $content = $formatter->formatEloquentModel($content);
-        } elseif ($content instanceof EloquentCollection) {
-            $content = $formatter->formatEloquentCollection($content);
-        } elseif (is_array($content) || $content instanceof ArrayObject || $content instanceof Arrayable) {
-            $content = $formatter->formatArray($content);
-        } elseif ($content instanceof stdClass) {
-            $content = $formatter->formatArray((array) $content);
+        if ($this->workingContent instanceof EloquentModel) {
+            $this->workingContent = $formatter->formatEloquentModel($this->workingContent);
+        } elseif ($this->workingContent instanceof EloquentCollection) {
+            $this->workingContent = $formatter->formatEloquentCollection($this->workingContent);
+        } elseif (is_array($this->workingContent) || $this->workingContent instanceof ArrayObject || $this->workingContent instanceof Arrayable) {
+            $this->workingContent = $formatter->formatArray($this->workingContent);
+        } elseif ($this->workingContent instanceof stdClass) {
+            $this->workingContent = $formatter->formatArray((array) $this->workingContent);
         } else {
             if (! empty($defaultContentType)) {
                 $this->headers->set('Content-Type', $defaultContentType);
             }
         }
 
-        $this->content = $content;
+        $this->content = $this->workingContent;
 
         return $this;
     }
@@ -177,7 +184,7 @@ class Response extends IlluminateResponse
             return;
         }
 
-        static::$events->dispatch(new ResponseWasMorphed($this, $this->content));
+        static::$events->dispatch(new ResponseWasMorphed($this, $this->workingContent));
     }
 
     /**
@@ -191,7 +198,7 @@ class Response extends IlluminateResponse
             return;
         }
 
-        static::$events->dispatch(new ResponseIsMorphing($this, $this->content));
+        static::$events->dispatch(new ResponseIsMorphing($this, $this->workingContent));
     }
 
     /**

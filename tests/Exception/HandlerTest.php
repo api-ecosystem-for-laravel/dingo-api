@@ -162,7 +162,7 @@ class HandlerTest extends BaseTestCase
 
         $object = json_decode($response->getContent());
 
-        $this->assertObjectHasAttribute('debug', $object);
+        $this->assertObjectHasProperty('debug', $object);
     }
 
     public function testHttpExceptionsWithNoMessageUseStatusCodeMessage()

@@ -2,6 +2,8 @@
 
 namespace Dingo\Api\Provider;
 
+use Illuminate\Routing\CallableDispatcher;
+use Illuminate\Routing\Contracts\CallableDispatcher as CallableDispatcherContract;
 use RuntimeException;
 use Dingo\Api\Auth\Auth;
 use Dingo\Api\Dispatcher;
@@ -55,6 +57,7 @@ class DingoServiceProvider extends ServiceProvider
         $this->registerExceptionHandler();
 
         $this->registerDispatcher();
+        $this->registerCallableDispatcher();
 
         $this->registerAuth();
 
@@ -142,6 +145,13 @@ class DingoServiceProvider extends ServiceProvider
             $dispatcher->setDefaultFormat($this->config('defaultFormat'));
 
             return $dispatcher;
+        });
+    }
+
+    public function registerCallableDispatcher()
+    {
+        $this->app->singleton(CallableDispatcherContract::class, function ($app) {
+            return new CallableDispatcher($app);
         });
     }
 

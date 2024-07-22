@@ -19,6 +19,16 @@ class RoutingAdapterStub implements Adapter
 
     protected $patterns = [];
 
+    protected $container;
+
+    /**
+     * @param \Illuminate\Container\Container            $container
+     */
+    public function __construct(Container $container)
+    {
+        $this->container = $container;
+    }
+
     public function dispatch(Request $request, $version)
     {
         $routes = $this->routes[$version];
@@ -75,6 +85,7 @@ class RoutingAdapterStub implements Adapter
 
         $route = new IlluminateRoute($methods, $uri, $action);
         $this->addWhereClausesToRoute($route);
+        $route->setContainer($this->container);
 
         foreach ($versions as $version) {
             $this->routes[$version]->add($route);

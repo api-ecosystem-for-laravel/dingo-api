@@ -9,7 +9,7 @@ use Dingo\Api\Http\Middleware\Auth;
 use Illuminate\Contracts\Http\Kernel;
 use Dingo\Api\Event\RequestWasMatched;
 use Dingo\Api\Http\Middleware\Request;
-use Illuminate\Foundation\Application;
+use Illuminate\Contracts\Foundation\Application;
 use Dingo\Api\Http\Middleware\RateLimit;
 use Illuminate\Routing\ControllerDispatcher;
 use Dingo\Api\Http\Middleware\PrepareController;

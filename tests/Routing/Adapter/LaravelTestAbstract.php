@@ -7,7 +7,7 @@ use Illuminate\Container\Container;
 use Illuminate\Events\Dispatcher;
 use Illuminate\Routing\Router;
 
-class LaravelTest extends BaseAdapterTest
+class LaravelTestAbstract extends BaseAdapterTestAbstract
 {
     public function getAdapterInstance()
     {
