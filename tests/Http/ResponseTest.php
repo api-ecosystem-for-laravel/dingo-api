@@ -68,7 +68,7 @@ class ResponseTest extends BaseTestCase
     public function testChangingContentWithEvents()
     {
         $this->events->listen(ResponseWasMorphed::class, function ($event) {
-            $event->content['foo'] = 'bam!';
+            $event->content = '{"foo":"bam!"}';
         });
 
         Response::addFormatter('json', new Json);
