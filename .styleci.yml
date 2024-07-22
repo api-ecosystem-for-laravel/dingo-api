@@ -1,8 +1,0 @@
-preset: laravel
-
-disabled:
-  - alpha_ordered_imports
-  - laravel_phpdoc_alignment
-
-enabled:
-  - unalign_double_arrow
