@@ -13,7 +13,7 @@ use Illuminate\Contracts\Container\Container;
 use Laravel\Lumen\Application;
 use Mockery as m;
 
-abstract class BaseAdapterTest extends BaseTestCase
+abstract class BaseAdapterTestAbstract extends BaseTestCase
 {
     /**
      * @var Container|Application

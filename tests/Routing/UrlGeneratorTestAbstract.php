@@ -8,7 +8,7 @@ use Dingo\Api\Tests\Stubs\RoutingAdapterStub;
 use Dingo\Api\Tests\Stubs\RoutingControllerStub;
 use Illuminate\Container\Container;
 
-class UrlGeneratorTest extends Adapter\BaseAdapterTest
+class UrlGeneratorTestAbstract extends Adapter\BaseAdapterTestAbstract
 {
     public function getAdapterInstance()
     {

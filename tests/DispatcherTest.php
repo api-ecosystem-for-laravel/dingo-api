@@ -21,6 +21,8 @@ use Illuminate\Filesystem\Filesystem;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Routing\CallableDispatcher;
+use Illuminate\Routing\Contracts\CallableDispatcher as CallableDispatcherContract;
 use Illuminate\Support\Facades\Request as RequestFacade;
 use Mockery as m;
 use Symfony\Component\HttpKernel\Exception\GoneHttpException;
@@ -67,7 +69,7 @@ class DispatcherTest extends BaseTestCase
 
         $this->transformerFactory = new TransformerFactory($this->container, new TransformerStub);
 
-        $this->adapter = new RoutingAdapterStub;
+        $this->adapter = new RoutingAdapterStub($this->container);
         $this->exception = m::mock(Handler::class);
         $this->router = new Router($this->adapter, $this->exception, $this->container, null, null);
 
@@ -75,6 +77,7 @@ class DispatcherTest extends BaseTestCase
         $this->dispatcher = new Dispatcher($this->container, new Filesystem, $this->router, $this->auth);
 
         app()->instance(\Illuminate\Routing\Router::class, $this->adapter);
+        $this->container->singleton(CallableDispatcherContract::class, CallableDispatcher::class);
 
         $this->dispatcher->setSubtype('api');
         $this->dispatcher->setStandardsTree('vnd');

@@ -13,7 +13,7 @@ use Illuminate\Container\Container;
 use Mockery as m;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 
-class RouterTest extends Adapter\BaseAdapterTest
+class RouterTestAbstract extends Adapter\BaseAdapterTestAbstract
 {
     public function getAdapterInstance()
     {
