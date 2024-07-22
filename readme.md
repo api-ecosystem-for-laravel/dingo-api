@@ -15,11 +15,10 @@ Please note, we do not actively maintain the Lumen support of this project. If y
 
 The Dingo API package is meant to provide you, the developer, with a set of tools to help you easily and quickly build your own API. While the goal of this package is to remain as flexible as possible it still won't cover all situations and solve all problems.
 
-[![Build Status](https://img.shields.io/travis/api-ecosystem-for-laravel/dingo-api/master.svg?style=flat-square)](https://travis-ci.org/api-ecosystem-for-laravel/dingo-api)
+[!Build Status](https://github.com/api-ecosystem-for-laravel/dingo-api/actions/workflows/ci.yml/badge.svg?branch=master)
 [![License](https://img.shields.io/packagist/l/api-ecosystem-for-laravel/dingo-api.svg?style=flat-square)](LICENSE)
 [![Development Version](https://img.shields.io/packagist/vpre/api-ecosystem-for-laravel/dingo-api.svg?style=flat-square)](https://packagist.org/packages/api-ecosystem-for-laravel/dingo-api)
 [![Monthly Installs](https://img.shields.io/packagist/dm/api-ecosystem-for-laravel/dingo-api.svg?style=flat-square)](https://packagist.org/packages/api-ecosystem-for-laravel/dingo-api)
-[![StyleCI](https://styleci.io/repos/452338988/shield)](https://styleci.io/repos/452338988)
 
 ## Features
 
