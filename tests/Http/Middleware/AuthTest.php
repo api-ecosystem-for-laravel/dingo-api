@@ -40,7 +40,7 @@ class AuthTest extends BaseTestCase
     public function setUp(): void
     {
         $this->container = new Container;
-        $this->adapter = new RoutingAdapterStub;
+        $this->adapter = new RoutingAdapterStub($this->container);
         $this->router = m::mock(Router::class);
         $this->auth = m::mock(Auth::class);
         $this->middleware = new AuthMiddleware($this->router, $this->auth);
