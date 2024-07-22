@@ -168,7 +168,7 @@ class Response extends IlluminateResponse
             }
         }
 
-        parent::setContent($this->workingContent);
+        $this->content = $this->workingContent;
 
         return $this;
     }
