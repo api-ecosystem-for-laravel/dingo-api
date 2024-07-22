@@ -25,8 +25,8 @@ class RouteTest extends BaseTestCase
 
     public function setUp(): void
     {
-        $this->adapter = new RoutingAdapterStub;
         $this->container = new Container;
+        $this->adapter = new RoutingAdapterStub($this->container);
     }
 
     public function testCreatingNewRoute()
