@@ -9,8 +9,8 @@ use Dingo\Api\Tests\Stubs\UserStub;
 use Dingo\Api\Transformer\Factory as TransformerFactory;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Collection;
-use League\Fractal\Manager;
-use League\Fractal\Resource\Item;
+use PHPOpenSourceSaver\Fractal\Manager;
+use PHPOpenSourceSaver\Fractal\Resource\Item;
 use Mockery;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 
@@ -93,11 +93,11 @@ class FactoryTest extends BaseTestCase
         }));
 
         $this->assertInstanceOf(Collection::class, $this->factory->collection(new Collection([new UserStub('Jason')]), 'test', function ($resource, $fractal) {
-            $this->assertInstanceOf(\League\Fractal\Resource\Collection::class, $resource);
+            $this->assertInstanceOf(\PHPOpenSourceSaver\Fractal\Resource\Collection::class, $resource);
             $this->assertInstanceOf(Manager::class, $fractal);
         })->getOriginalContent());
         $this->assertInstanceOf(Collection::class, $this->factory->withCollection(new Collection([new UserStub('Jason')]), 'test', function ($resource, $fractal) {
-            $this->assertInstanceOf(\League\Fractal\Resource\Collection::class, $resource);
+            $this->assertInstanceOf(\PHPOpenSourceSaver\Fractal\Resource\Collection::class, $resource);
             $this->assertInstanceOf(Manager::class, $fractal);
         })->getOriginalContent());
     }

@@ -5,7 +5,7 @@ namespace Dingo\Api\Tests\Transformer\Adapter;
 use Dingo\Api\Http\Request;
 use Dingo\Api\Tests\BaseTestCase;
 use Dingo\Api\Transformer\Adapter\Fractal;
-use League\Fractal\Manager as FractalManager;
+use PHPOpenSourceSaver\Fractal\Manager as FractalManager;
 
 class FractalTest extends BaseTestCase
 {
