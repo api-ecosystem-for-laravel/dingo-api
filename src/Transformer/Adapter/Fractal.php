@@ -4,13 +4,13 @@ namespace Dingo\Api\Transformer\Adapter;
 
 use Dingo\Api\Http\Request;
 use Dingo\Api\Transformer\Binding;
-use League\Fractal\TransformerAbstract;
+use PHPOpenSourceSaver\Fractal\TransformerAbstract;
 use Dingo\Api\Contract\Transformer\Adapter;
-use League\Fractal\Manager as FractalManager;
-use League\Fractal\Resource\Item as FractalItem;
-use League\Fractal\Pagination\IlluminatePaginatorAdapter;
+use PHPOpenSourceSaver\Fractal\Manager as FractalManager;
+use PHPOpenSourceSaver\Fractal\Resource\Item as FractalItem;
+use PHPOpenSourceSaver\Fractal\Pagination\IlluminatePaginatorAdapter;
 use Illuminate\Support\Collection as IlluminateCollection;
-use League\Fractal\Resource\Collection as FractalCollection;
+use PHPOpenSourceSaver\Fractal\Resource\Collection as FractalCollection;
 use Illuminate\Database\Eloquent\Collection as EloquentCollection;
 use Illuminate\Contracts\Pagination\Paginator as IlluminatePaginator;
 
@@ -19,7 +19,7 @@ class Fractal implements Adapter
     /**
      * Fractal manager instance.
      *
-     * @var \League\Fractal\Manager
+     * @var \PHPOpenSourceSaver\Fractal\Manager
      */
     protected $fractal;
 
@@ -47,7 +47,7 @@ class Fractal implements Adapter
     /**
      * Create a new fractal transformer instance.
      *
-     * @param \League\Fractal\Manager $fractal
+     * @param \PHPOpenSourceSaver\Fractal\Manager $fractal
      * @param string                  $includeKey
      * @param string                  $includeSeparator
      * @param bool                    $eagerLoading
@@ -65,7 +65,7 @@ class Fractal implements Adapter
      * Transform a response with a transformer.
      *
      * @param mixed                                     $response
-     * @param League\Fractal\TransformerAbstract|object $transformer
+     * @param PHPOpenSourceSaver\Fractal\TransformerAbstract|object $transformer
      * @param \Dingo\Api\Transformer\Binding            $binding
      * @param \Dingo\Api\Http\Request                   $request
      * @return array
@@ -127,7 +127,7 @@ class Fractal implements Adapter
      * Create the Fractal paginator adapter.
      *
      * @param \Illuminate\Contracts\Pagination\Paginator $paginator
-     * @return \League\Fractal\Pagination\IlluminatePaginatorAdapter
+     * @return \PHPOpenSourceSaver\Fractal\Pagination\IlluminatePaginatorAdapter
      */
     protected function createPaginatorAdapter(IlluminatePaginator $paginator)
     {
@@ -138,9 +138,9 @@ class Fractal implements Adapter
      * Create a Fractal resource instance.
      *
      * @param mixed                               $response
-     * @param \League\Fractal\TransformerAbstract $transformer
+     * @param \PHPOpenSourceSaver\Fractal\TransformerAbstract $transformer
      * @param array                               $parameters
-     * @return \League\Fractal\Resource\Item|\League\Fractal\Resource\Collection
+     * @return \PHPOpenSourceSaver\Fractal\Resource\Item|\PHPOpenSourceSaver\Fractal\Resource\Collection
      */
     protected function createResource($response, $transformer, array $parameters)
     {
@@ -173,7 +173,7 @@ class Fractal implements Adapter
     /**
      * Get the underlying Fractal instance.
      *
-     * @return \League\Fractal\Manager
+     * @return \PHPOpenSourceSaver\Fractal\Manager
      */
     public function getFractal()
     {
@@ -183,7 +183,7 @@ class Fractal implements Adapter
     /**
      * Get includes as their array keys for eager loading.
      *
-     * @param \League\Fractal\TransformerAbstract $transformer
+     * @param \PHPOpenSourceSaver\Fractal\TransformerAbstract $transformer
      * @param string|array                        $requestedIncludes
      * @return array
      */
