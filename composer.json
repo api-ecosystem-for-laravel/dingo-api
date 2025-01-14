@@ -16,7 +16,7 @@
         "php": "^8.0",
         "illuminate/routing": "^9.0|^10.0|^11.0",
         "illuminate/support": "^9.0|^10.0|^11.0",
-        "php-open-source-saver/fractal": "^0.20"
+        "php-open-source-saver/fractal": "^0.22"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "~3",
