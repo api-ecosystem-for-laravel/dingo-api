@@ -7,6 +7,8 @@ use Dingo\Api\Http\Response\Format\Json;
 use Dingo\Api\Tests\BaseTestCase;
 use Dingo\Api\Tests\Stubs\EloquentModelStub;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\MessageBag;
 
 class JsonTest extends BaseTestCase
@@ -51,6 +53,25 @@ class JsonTest extends BaseTestCase
         $response = (new Response(new Collection([new EloquentModelStub, new EloquentModelStub])))->morph();
 
         $this->assertSame('{"foo_bars":[{"foo":"bar"},{"foo":"bar"}]}', $response->getContent());
+    }
+
+    public function testMorphLengthAwarePaginator()
+    {
+        $response = (new Response(new LengthAwarePaginator([new EloquentModelStub, new EloquentModelStub], 2, 10)))->morph();
+
+        $content = json_decode($response->getContent(), true);
+
+        $this->assertArrayHasKey('total', $content);
+        $this->assertSame(2, $content['total']);
+    }
+
+    public function testMorphSimplePaginator()
+    {
+        $response = (new Response(new Paginator([new EloquentModelStub, new EloquentModelStub], 2, 1)))->morph();
+
+        $content = json_decode($response->getContent(), true);
+
+        $this->assertArrayNotHasKey('total', $content);
     }
 
     public function testMorphingEmptyEloquentCollection()
