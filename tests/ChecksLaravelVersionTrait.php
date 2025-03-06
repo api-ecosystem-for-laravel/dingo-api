@@ -28,7 +28,7 @@ trait ChecksLaravelVersionTrait
         // Find laravel/framework or lumen package
         $just_laravel = array_filter($parsed_data, function ($composerPackageData) {
             if (is_array($composerPackageData) && array_key_exists('name', $composerPackageData)) {
-                if ('laravel/framework' === $composerPackageData['name'] || 'laravel/lumen-framework' === $composerPackageData['name']) {
+                if ('laravel/framework' === $composerPackageData['name']) {
                     return true;
                 }
             }

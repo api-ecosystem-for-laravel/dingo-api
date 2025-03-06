@@ -9,10 +9,12 @@ use Dingo\Api\Contract\Transformer\Adapter;
 use PHPOpenSourceSaver\Fractal\Manager as FractalManager;
 use PHPOpenSourceSaver\Fractal\Resource\Item as FractalItem;
 use PHPOpenSourceSaver\Fractal\Pagination\IlluminatePaginatorAdapter;
+use PHPOpenSourceSaver\Fractal\Pagination\IlluminateSimplePaginatorAdapter;
 use Illuminate\Support\Collection as IlluminateCollection;
 use PHPOpenSourceSaver\Fractal\Resource\Collection as FractalCollection;
 use Illuminate\Database\Eloquent\Collection as EloquentCollection;
 use Illuminate\Contracts\Pagination\Paginator as IlluminatePaginator;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator as IlluminateLengthAwarePaginator;
 
 class Fractal implements Adapter
 {
@@ -127,11 +129,15 @@ class Fractal implements Adapter
      * Create the Fractal paginator adapter.
      *
      * @param \Illuminate\Contracts\Pagination\Paginator $paginator
-     * @return \PHPOpenSourceSaver\Fractal\Pagination\IlluminatePaginatorAdapter
+     * @return IlluminatePaginatorAdapter|IlluminateSimplePaginatorAdapter
      */
     protected function createPaginatorAdapter(IlluminatePaginator $paginator)
     {
-        return new IlluminatePaginatorAdapter($paginator);
+        if ($paginator instanceof IlluminateLengthAwarePaginator) {
+            return new IlluminatePaginatorAdapter($paginator);
+        } else {
+            return new IlluminateSimplePaginatorAdapter($paginator);
+        }
     }
 
     /**
