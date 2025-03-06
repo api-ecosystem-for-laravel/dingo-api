@@ -13,7 +13,7 @@ use Dingo\Api\Tests\Stubs\Application58Stub;
 trait ChecksLaravelVersionTrait
 {
     public $installed_file_path = __DIR__.'/../vendor/composer/installed.json';
-    public $current_release = '8.0';
+    public $current_release = '12.0';
 
     private function getFrameworkVersion()
     {
