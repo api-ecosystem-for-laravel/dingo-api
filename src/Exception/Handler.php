@@ -91,7 +91,7 @@ class Handler implements ExceptionHandler, IlluminateExceptionHandler
      */
     public function shouldReport(Throwable $e)
     {
-        return true;
+        return $this->parentHandler->shouldReport($e);
     }
 
     /**
