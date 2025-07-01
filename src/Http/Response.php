@@ -72,13 +72,13 @@ class Response extends IlluminateResponse
     /**
      * Create a new response instance.
      *
-     * @param mixed                          $content
-     * @param int                            $status
-     * @param array                          $headers
-     * @param \Dingo\Api\Transformer\Binding $binding
+     * @param mixed                               $content
+     * @param int                                 $status
+     * @param array                               $headers
+     * @param \Dingo\Api\Transformer\Binding|null $binding
      * @return void
      */
-    public function __construct($content, $status = 200, $headers = [], Binding $binding = null)
+    public function __construct($content, $status = 200, $headers = [], ?Binding $binding = null)
     {
         parent::__construct($content, $status, $headers);
 
