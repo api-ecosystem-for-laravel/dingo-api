@@ -20,12 +20,12 @@ class InternalHttpException extends HttpException
      *
      * @param \Symfony\Component\HttpFoundation\Response $response
      * @param string                                     $message
-     * @param \Exception                                 $previous
+     * @param \Exception|null                            $previous
      * @param array                                      $headers
      * @param int                                        $code
      * @return void
      */
-    public function __construct(Response $response, $message = null, Exception $previous = null, array $headers = [], $code = 0)
+    public function __construct(Response $response, $message = null, ?Exception $previous = null, array $headers = [], $code = 0)
     {
         $this->response = $response;
 

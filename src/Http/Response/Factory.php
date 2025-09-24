@@ -89,7 +89,7 @@ class Factory
      * @param \Closure|null                  $after
      * @return \Dingo\Api\Http\Response
      */
-    public function collection(Collection $collection, $transformer = null, $parameters = [], Closure $after = null)
+    public function collection(Collection $collection, $transformer = null, $parameters = [], ?Closure $after = null)
     {
         if ($collection->isEmpty()) {
             $class = get_class($collection);
@@ -117,10 +117,10 @@ class Factory
      * @param object                         $item
      * @param null|string|callable|object    $transformer
      * @param array                          $parameters
-     * @param \Closure                       $after
+     * @param \Closure|null                  $after
      * @return \Dingo\Api\Http\Response
      */
-    public function item($item, $transformer = null, $parameters = [], Closure $after = null)
+    public function item($item, $transformer = null, $parameters = [], ?Closure $after = null)
     {
         // Check for $item being null
         if (! is_null($item)) {
@@ -152,7 +152,7 @@ class Factory
      * @param Closure|null $after
      * @return Response
      */
-    public function array(array $array, $transformer = null, $parameters = [], Closure $after = null)
+    public function array(array $array, $transformer = null, $parameters = [], ?Closure $after = null)
     {
         if ($parameters instanceof \Closure) {
             $after = $parameters;
@@ -180,10 +180,10 @@ class Factory
      * @param \Illuminate\Contracts\Pagination\Paginator $paginator
      * @param null|string|callable|object                $transformer
      * @param array                                      $parameters
-     * @param \Closure                                   $after
+     * @param \Closure|null                              $after
      * @return \Dingo\Api\Http\Response
      */
-    public function paginator(Paginator $paginator, $transformer = null, array $parameters = [], Closure $after = null)
+    public function paginator(Paginator $paginator, $transformer = null, array $parameters = [], ?Closure $after = null)
     {
         if ($paginator->isEmpty()) {
             $class = get_class($paginator);
