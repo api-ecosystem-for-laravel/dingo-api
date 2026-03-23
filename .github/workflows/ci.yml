@@ -22,7 +22,7 @@ jobs:
           { php: 8.3, laravel: 13 }, { php: 8.4, laravel: 13 }, { php: 8.5, laravel: 13 }
         ]
 
-    name: PHP ${{ matrix.php }} - Laravel ${{ matrix.laravel }}
+    name: PHP ${{ matrix.versions.php }} - Laravel ${{ matrix.versions.laravel }}
 
     steps:
       - name: Checkout code
