@@ -98,8 +98,6 @@ class LaravelServiceProvider extends DingoServiceProvider
     protected function getRouterBindings()
     {
         $property = (new ReflectionClass($this->app['router']))->getProperty('binders');
-        $property->setAccessible(true);
-
         return $property->getValue($this->app['router']);
     }
 
@@ -168,8 +166,6 @@ class LaravelServiceProvider extends DingoServiceProvider
     protected function gatherAppMiddleware(Kernel $kernel)
     {
         $property = (new ReflectionClass($kernel))->getProperty('middleware');
-        $property->setAccessible(true);
-
         return $property->getValue($kernel);
     }
 
